@@ -1,0 +1,452 @@
+﻿0:00:10.560,0:00:15.018
+Hello everyone, TDSW Youtube Channel!
+
+0:00:15.042,0:00:19.500
+From now on, I'm going to write a new article titled "GLSL for TouchDesigner
+
+0:00:19.500,0:00:25.140
+I'd like to talk about GLSL.
+please help me
+
+0:00:25.140,0:00:29.023
+First of all, what is GLSL?
+So that's what I'm saying.
+
+0:00:29.047,0:00:33.680
+GLSL stands for OpenGL Shading Language, and
+
+0:00:33.980,0:00:41.200
+In this case, OpenGL is called the Open Graphics Library.
+It's a library that handles 3D graphics
+
+0:00:41.200,0:00:45.301
+Finally, as the word Language indicates, it is a programming language
+
+0:00:45.325,0:00:49.040
+You may hear the word "shader" a lot.
+
+0:00:49.040,0:00:56.880
+A blog that says in one word what Shader is all about.
+I found it and I'm going to take a look at it.
+
+0:00:56.880,0:01:04.179
+This is Shibuya Hotogisu Tsushin's
+I'll try to sum up in my own words what a "shader" is
+
+0:01:04.203,0:01:07.653
+So here's what we're going to look at
+
+0:01:07.677,0:01:14.039
+A program for displaying 3D objects on a display
+And here it is defined as
+
+0:01:14.063,0:01:20.080
+I've made a little diagram of what this is all about.
+See here
+
+0:01:20.080,0:01:24.562
+There's a 3D object, and then something happens.
+
+0:01:24.586,0:01:30.450
+It means that a 3D object will eventually appear on this display
+
+0:01:30.450,0:01:38.420
+You know, like a graphics pipeline in the 3DCG world.
+We call it a rendering pipeline or something like that.
+
+0:01:38.420,0:01:45.430
+That's the case with OpenGL.
+
+0:01:45.590,0:01:51.210
+It means that the Shader is running in this
+
+0:01:51.210,0:01:58.580
+There is a thing called the Shader stage in the Shader.
+So this is how some processes work.
+
+0:01:58.650,0:02:06.258
+There are a few places in there where programmers can actually write code
+
+0:02:06.282,0:02:13.493
+Since 3D objects are made up of triangular faces
+So there are an awful lot of vertices.
+
+0:02:13.517,0:02:18.200
+The first thing to do is to use the
+It's called the Vertex Shader.
+
+0:02:18.200,0:02:24.023
+Another one called Fragment Shader.
+There is a Shader that handles the pixels
+
+0:02:24.048,0:02:29.573
+These two are basically the main shaders you'll be writing
+
+0:02:29.597,0:02:31.410
+And more.
+
+0:02:31.410,0:02:37.670
+It is called Geometry Shader.
+Shader, which allows you to increase or decrease the amount of primitive, and
+
+0:02:37.670,0:02:40.328
+It's called the Compute Shader.
+
+0:02:40.352,0:02:44.988
+This is something that runs outside of this graphics pipeline, though.
+
+0:02:45.012,0:02:48.980
+It's a Shader for general purpose calculations and stuff like that.
+
+0:02:48.980,0:02:54.489
+This one doesn't work on a Mac, but here's what I've got
+
+0:02:55.090,0:02:57.858
+This is what we call a Shader.
+
+0:02:57.882,0:03:05.095
+GLSL uses the
+I think you could call it a programming language
+
+0:03:07.400,0:03:14.280
+It could be 3DCG lighting, or image processing, or effects.
+It's used in filters and such.
+
+0:03:14.280,0:03:18.350
+Some people make sounds with it.
+
+0:03:19.230,0:03:22.885
+When you can write this GLSL in TouchDesigner
+
+0:03:22.909,0:03:28.596
+I know it's a little bit different from the description.
+It can also be used in other software and frameworks
+
+0:03:28.620,0:03:35.760
+For example, openFrameworks, Processing, and
+You can also use it for WebGL and so on.
+
+0:03:36.030,0:03:40.243
+In other 3D software
+For example, even if it's something that doesn't write code
+
+0:03:40.268,0:03:46.670
+I think it's very useful because you can apply the idea
+
+0:03:46.780,0:03:54.340
+It's more like a knowledge of matrices and linear algebra and stuff like that.
+Although I think it's easy to understand GLSL better
+
+0:03:54.340,0:04:01.780
+I'm talking to you now, because I used to be a humanities guy myself, and
+As someone who started studying this kind of thing after studying programming, I'm not a fan of
+
+0:04:01.804,0:04:09.550
+The mindset of this series is to just try it for now.
+I'd like to move on.
+
+0:04:09.870,0:04:16.810
+So, in TouchDesigner, we're going to use
+It's about how GLSL is used.
+
+0:04:16.810,0:04:22.802
+Mr. Higa, who has been speaking at TDSW many times as a lecturer
+
+0:04:22.826,0:04:29.810
+There's a good summary on the lecture page and I'd like to see this
+
+0:04:29.834,0:04:31.162
+This one.
+
+0:04:31.186,0:04:40.580
+Higa's first day of lectures in 2019
+This is the first article on getting started.
+
+0:04:41.030,0:04:45.070
+I'll have them go downstairs.
+
+0:04:47.849,0:04:55.934
+There's a table like this and how the so-called TouchDesigner is organized.
+I think it's a really good chart that's easy to understand.
+
+0:04:57.340,0:05:05.751
+This GLSL is basically the same as the one I mentioned earlier.
+So it's often used for 3DCG.
+
+0:05:05.776,0:05:12.574
+So this TOP, this so-called 2D or material
+
+0:05:12.598,0:05:19.138
+SOP in 3D, where the vertex processing takes place
+
+0:05:19.162,0:05:24.650
+This is where GLSL will be used.
+
+0:05:31.120,0:05:36.646
+Why are we here?
+If you ask me if I use GLSL.
+
+0:05:36.670,0:05:41.810
+So you're trying to use what's called a GPU to do the processing.
+
+0:05:41.810,0:05:49.313
+Here's a video showing the difference between the CPU and GPU.
+
+0:05:49.338,0:05:52.149
+I'd like to take a look at it.
+
+0:05:57.870,0:06:02.893
+This video, but it's done by a company that makes GPUs.
+
+0:06:02.917,0:06:05.555
+Of course, I think it's GPU superiority.
+
+0:06:05.579,0:06:12.180
+If it was a CPU, it would be like this, piece by piece
+It's a process that takes a lot of time and a video that looks like it's going to take this long.
+
+0:06:12.180,0:06:19.449
+When you do this kind of work on the GPU
+
+0:06:25.399,0:06:32.462
+It's like being able to do parallel processing all at once like this and draw a picture.
+
+0:06:32.486,0:06:34.625
+Here's a comparison video like this one.
+
+0:06:37.150,0:06:42.943
+It's not that GPUs are better at everything, of course, but
+The simpler these tasks are, the better.
+
+0:06:42.967,0:06:50.584
+It's like it's faster to do things in parallel on the GPU.
+It's used a lot in the world of 3D and stuff like that.
+
+0:06:52.980,0:06:57.330
+As Higa-san wrote, there is a CPU and GPU.
+
+0:06:57.330,0:07:04.738
+GPUs are faster, so it's better to go with them as much as possible
+So I'd like to proceed with that.
+
+0:07:14.680,0:07:22.169
+When actually writing a GLSL in TouchDesigner, you can use
+
+0:07:22.194,0:07:31.066
+GLSL TOP and GLSL Multi TOP and
+
+0:07:31.091,0:07:34.110
+It's called the GLSL MAT.
+
+0:07:34.110,0:07:37.460
+In the beginning, I used just GLSL TOP for a while.
+
+0:07:37.484,0:07:44.480
+I'm going to do a lot of things that you can do with Fragment Shader
+
+0:07:47.100,0:07:54.078
+It's about processing 2D pixels, so this can be an effect or
+I can create animations and so on.
+
+0:07:54.102,0:08:00.376
+Amazing people are in this Fragment Shader.
+We also create 3D worlds.
+
+0:08:00.401,0:08:04.190
+I'd like to do a little bit of that actually.
+
+0:08:04.190,0:08:07.990
+First, you have to get rid of all this.
+
+0:08:14.950,0:08:19.230
+Place the GLSL
+
+0:08:19.255,0:08:25.870
+It's like this.
+This is what it looks like when I put it in place.
+
+0:08:28.169,0:08:32.880
+When you look at this place, sir.
+It says Vertex Shader and Pixel Shader.
+
+0:08:32.880,0:08:39.180
+I heard it's called Fragment Shader in OpenGL.
+It's called a Pixel Shader here.
+
+0:08:39.180,0:08:48.410
+In my research, I found that Fragment Shader and Pixel Shader
+I'm sure there's a description for both of them, but you can assume they're the same thing.
+
+0:08:48.460,0:08:56.518
+In this GLSL TOP, the Pixel Shader, in addition to this
+You can write a Compute Shader
+
+0:08:56.542,0:08:58.510
+In the meantime, I might do it later.
+
+0:08:58.510,0:09:04.090
+I'd like to use the Pixel Shader this time.
+
+0:09:08.050,0:09:13.200
+I'd like to take a look at the code inside.
+
+0:09:14.089,0:09:19.687
+Basically, all the processing is done in the main function
+
+0:09:19.711,0:09:26.670
+This fragColor is called
+fragments of all colors
+
+0:09:26.670,0:09:34.670
+This one here is called vec4 color.
+With the name of the variable named color of type vec4
+
+0:09:34.795,0:09:39.710
+This has four floats inside it
+
+0:09:39.710,0:09:47.710
+I could write it this way.
+That's the equivalent of four 1.0s.
+
+0:09:47.920,0:09:53.539
+It's kind of like saying it's written in shortened form.
+This is something that is RGBA.
+
+0:09:53.539,0:09:57.901
+R, G, B, A and
+
+0:09:57.925,0:10:02.690
+For example, if you set this place to 0 and 0.
+
+0:10:02.690,0:10:07.120
+This would be an R.
+It's like this.
+
+0:10:08.550,0:10:13.339
+I know the last one here is an A, but I can change this one.
+
+0:10:13.339,0:10:18.459
+The A's are a bit different at this point.
+
+0:10:28.270,0:10:33.597
+This last one, this one called TDOutputSwizzle
+
+0:10:33.621,0:10:40.488
+This is, you know, originally a Windows and Mac
+Because of the different way the textured alpha information is stored.
+
+0:10:40.512,0:10:44.179
+This function absorbs these OS differences
+
+0:10:44.179,0:10:47.977
+So I'm sure there are probably a lot of people using Macs.
+
+0:10:48.002,0:10:53.665
+Be sure to include this when you output the color at the end!
+
+0:10:54.986,0:11:01.783
+Anybody with a TD on their head is basically
+I'm almost certain that it is a TouchDesigner specific function, so you can use
+
+0:11:01.808,0:11:04.870
+Remember.
+
+0:11:12.620,0:11:18.720
+This editor in TouchDesigner is good, though.
+I use an external editor.
+
+0:11:18.745,0:11:22.640
+It's just that it's easier to write that way.
+
+0:11:22.640,0:11:27.490
+As you go through the settings, you can press Edit.
+
+0:11:27.490,0:11:30.437
+It will open in an external editor
+
+0:11:30.462,0:11:38.444
+I'm using VSCode.
+Whatever.
+
+0:11:38.468,0:11:43.745
+If it's free, like Sublimte Text.
+I'm sure that's part of it.
+
+0:11:43.769,0:11:47.390
+The way this is set up.
+
+0:11:48.060,0:11:52.878
+Edit - Preference
+Alt P is fine.
+
+0:11:52.902,0:11:57.698
+From here we go to a place called DATs.
+
+0:11:57.722,0:12:02.340
+Here is where you can specify the path to the text editor.
+
+0:12:02.340,0:12:09.410
+I'm specifying the VSCode path here
+
+0:12:09.410,0:12:12.910
+If you specify this, the
+
+0:12:13.470,0:12:19.859
+When you press Edit here, you'll see that
+It will open in an external text editor
+
+0:12:27.570,0:12:35.852
+The changes you make here are immediately reflected here
+That's how it works.
+
+0:12:37.649,0:12:45.333
+This one is called glsl1_info, and it's a
+So you can see the status here.
+
+0:12:45.357,0:12:49.058
+For example, if there is something wrong with this code.
+
+0:12:49.082,0:12:55.100
+It will give you an error here.
+You can see what's wrong with it.
+
+0:12:55.100,0:13:02.697
+For example, if it was now, lines 10 and 11 would be
+He'll tell you there's something wrong with you.
+
+0:13:02.721,0:13:06.000
+I find it useful for debugging.
+
+0:13:11.240,0:13:16.040
+This is an introduction, so that's all I'm going to do.
+
+0:13:16.064,0:13:21.780
+I'll be writing some actual code next time.
+
+0:13:22.889,0:13:30.529
+In addition to the Youtube tutorials on TDSW
+We offer live streaming workshops about two weekends a month.
+
+0:13:30.529,0:13:38.460
+If these tutorials have piqued your interest in TDSW
+Please come and visit us at our live streaming workshops!
+
+0:13:38.460,0:13:41.479
+Also, TDSW uses Patreon
+
+0:13:41.503,0:13:45.900
+Currently, we have a plan to support the creation of Youtube and an unlimited number of videos for workshops.
+
+0:13:45.900,0:13:50.088
+There are three plans: Workshop video and unlimited live streaming plan
+
+0:13:50.112,0:13:56.501
+This is more affordable than attending a stand-alone workshop
+I hope you will consider it.
+
+0:13:56.525,0:14:02.040
+Please check out the link in the summary section!
+
+0:14:02.040,0:14:09.199
+Well, thank you for watching.
+Please subscribe to the channel if you'd like.
