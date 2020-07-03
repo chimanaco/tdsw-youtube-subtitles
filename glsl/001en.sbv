@@ -2,11 +2,12 @@
 Hello everyone, TDSW Youtube Channel!
 
 0:00:15.042,0:00:19.500
-From now on, I'm going to write a new article titled "GLSL for TouchDesigner
+I'm going to start a new tutorial series titled
+"Getting started with GLSL on TouchDesigner"
 
 0:00:19.500,0:00:25.140
 I'd like to talk about GLSL.
-please help me
+Thank you for watching!
 
 0:00:25.140,0:00:29.023
 First of all, what is GLSL?
@@ -15,8 +16,8 @@ So that's what I'm saying.
 0:00:29.047,0:00:33.680
 GLSL stands for OpenGL Shading Language, and
 
-0:00:33.980,0:00:41.200
-In this case, OpenGL is called the Open Graphics Library.
+0:00:33.980,0:00:38.402
+OpenGL stands for Open Graphics Library.
 It's a library that handles 3D graphics
 
 0:00:41.200,0:00:45.301
