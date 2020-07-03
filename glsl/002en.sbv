@@ -1,0 +1,788 @@
+0:00:00.000,0:00:08.797
+[Music]
+
+0:00:10.153,0:00:13.778
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.192,0:00:20.068
+Getting started with GLSL on TouchDesigner, the second episode
+Thank you for watching!
+
+0:00:20.240,0:00:24.834
+This time, sir.
+Coordinates, explain the coordinate system and
+
+0:00:24.859,0:00:30.232
+The end result is something as cool as what you're seeing right now.
+I'd like to make a few things.
+
+0:00:35.114,0:00:40.395
+GLSL
+I'll use this.
+
+0:00:40.420,0:00:45.531
+It's a GLSL coordinate system.
+It's what's called a right-handed coordinate system.
+
+0:00:45.556,0:00:51.806
+x is + when going right.
+The higher up you go, the more + y is in the wind
+
+0:00:52.604,0:00:56.518
+We're supposed to deal with values from 0 to 1 in this one.
+
+0:00:58.088,0:01:01.439
+Bottom left is x = 0 and y = 0
+
+0:01:01.970,0:01:05.980
+The top right corner becomes x =1 y=1
+
+0:01:06.220,0:01:11.089
+And while we're at it, the top left-hand corner is.
+x =0 y=1
+
+0:01:11.114,0:01:15.913
+The bottom right corner says x=1 y=0
+It's like this.
+
+0:01:16.632,0:01:23.678
+You can easily visualize these in GLSL with color, so you can use
+I'd like to take a look at it.
+
+0:01:31.970,0:01:37.330
+I opened GLSL with an external editor.
+
+0:01:37.354,0:01:39.673
+I'd like to put it here and lay it out.
+
+0:01:40.710,0:01:47.388
+What we're going to use here is this variable called vUV.
+What is this?
+
+0:01:47.413,0:01:54.222
+Now this is a 256x256 texture.
+There's a pixel in there.
+
+0:01:54.247,0:01:58.155
+It contains information on all the coordinates.
+
+0:02:04.010,0:02:12.666
+Basically, this is TouchDesigner's
+This function is supposed to be available in GLSL TOP
+
+0:02:12.950,0:02:16.403
+When combining the Fragment Shader and the Vertex Shader, you can use
+
+0:02:16.428,0:02:22.149
+From the Vertex Shader by yourself.
+I'd have to send you a variable.
+
+0:02:22.150,0:02:25.170
+You don't have to think about that, especially in this case.
+
+0:02:28.935,0:02:31.580
+It's got a "st" on the back.
+
+0:02:32.060,0:02:39.350
+This is something called Swizzle.
+It's used to represent these vector and other values.
+
+0:02:39.777,0:02:47.759
+Besides st.
+It's called rgba or xyz.
+
+0:02:47.760,0:02:52.955
+For example.
+This vec4 color is called
+
+0:02:52.980,0:02:59.575
+vec4(1.0), so there are four rgba and
+So it's all going to be with one in it.
+
+0:02:59.600,0:03:02.302
+When you take this out.
+
+0:03:04.396,0:03:07.076
+Do a float, for example, r.
+
+0:03:07.101,0:03:12.270
+color.r
+If you do this, the
+
+0:03:12.810,0:03:16.054
+The first one, this one, is ready to be taken.
+
+0:03:16.310,0:03:23.590
+What else?
+g Of course you can do this, and
+
+0:03:23.703,0:03:29.794
+When it's like this, rg... Wrong.
+You can do this with rgb.
+
+0:03:29.819,0:03:35.352
+Another little interesting use for it.
+
+0:03:35.512,0:03:41.738
+For example, let's do vec4 color2.
+
+0:03:43.955,0:03:48.285
+color.rbga or something like that.
+
+0:03:48.316,0:03:53.535
+These b and g values can be used to flip over
+
+0:03:55.409,0:03:59.565
+This rgba and...
+
+0:03:59.590,0:04:07.681
+There's another one called xyzw.
+
+0:04:08.149,0:04:12.583
+There is one more thing that is used in this vUV
+
+0:04:12.607,0:04:14.719
+What was it again?
+
+0:04:19.317,0:04:25.500
+stpq.
+It's called stpq.
+
+0:04:25.705,0:04:34.026
+As for this Swizzle to use during this texture
+This st is the standard way to use it, so
+
+0:04:34.051,0:04:39.440
+I'm sure it's used when you see other people's sample code or something.
+
+0:04:40.340,0:04:49.278
+In fact, using rgb for the colors and xyz for the coordinate system is only possible with
+I think it's because it's easy to understand.
+
+0:04:49.302,0:04:55.132
+If you put in xy or something like that instead of this st, you get the same result.
+
+0:04:56.062,0:05:03.167
+But it gets a little confusing.
+For colors, you can use rgba and xyz for coordinates.
+
+0:05:03.191,0:05:08.640
+I think it's a good idea to use st for textures.
+
+0:05:11.615,0:05:18.119
+Okay, I'll leave you with this for a moment.
+I'd like to actually write the code.
+
+0:05:22.500,0:05:30.219
+First of all, write something like vUV.st
+0.0, 0.0, 1.0 and
+
+0:05:30.286,0:05:33.818
+I write it like this.
+Oh, something is wrong.
+
+0:05:33.851,0:05:39.265
+This one.
+This will be a vUV.s, not a st
+
+0:05:39.530,0:05:47.000
+You see, this is what happens when you do this.
+This s is basically the x-direction and t is the y-direction, but
+
+0:05:47.025,0:05:54.654
+As you can see, there's a lot of zero to one information in here.
+
+0:05:54.865,0:06:02.329
+All the other g's and b's are zero, so I'm not sure what the value of this red is
+This is where the visualization comes in.
+
+0:06:02.445,0:06:08.416
+From blackish to bright red.
+Zero to one information.
+
+0:06:13.310,0:06:21.060
+If you have a color depending on the value of x
+It comes down to this.
+
+0:06:23.500,0:06:29.375
+Just a quick glance at this and I don't know what I'm doing well.
+Some of you may say
+
+0:06:29.400,0:06:35.330
+This is a TouchDesigner instancing of
+I'd like to express myself a bit.
+
+0:06:43.030,0:06:49.890
+What we're doing.
+Let's make it a little bigger once.
+
+0:06:51.907,0:06:59.508
+There's a grid, and this grid is 20x20.
+It's a bit smaller than the one we're doing in that Shader.
+
+0:07:00.422,0:07:03.168
+There's a 20x20 grid.
+
+0:07:03.192,0:07:12.530
+I'm going to take this as the default, where it's at -0.5 to 0.5.
+I'm placing them at 0 to 1.
+
+0:07:12.555,0:07:18.307
+Zero and one, and that's a one too.
+I'd say this is one and one.
+
+0:07:19.699,0:07:27.277
+Make this SOP a CHOP.
+I'm using it for Instancing.
+
+0:07:29.396,0:07:32.742
+There are a lot of little boxes.
+That's how it works.
+
+0:07:32.767,0:07:39.591
+Here's what this looks like when you open it up a bit
+You'll see a row of 20x20 boxes
+
+0:07:42.036,0:07:45.575
+What we want to do here is
+
+0:07:45.872,0:07:53.132
+Geometry now Instancing all of these positions in Instancing.
+You're placing the t in translate.
+
+0:07:53.163,0:07:58.462
+tx is this way, ty is that way
+That's the way it's supposed to work.
+
+0:07:58.729,0:08:01.442
+I'd like to add some color information here
+
+0:08:02.942,0:08:09.380
+rgba, so tx to r
+Let me in.
+
+0:08:09.470,0:08:15.868
+I want to put zeros in everything else.
+I'll put an unchanged z in there.
+
+0:08:16.090,0:08:20.363
+It's like this.
+I think it's easier to understand this way.
+
+0:08:20.388,0:08:22.738
+It's changing from black to red.
+
+0:08:23.991,0:08:31.619
+This one has 200 pixels.
+If this is a GLSL, it's going to be processed all at the same time.
+
+0:08:31.644,0:08:38.620
+All of these pixels are processed in one frame.
+That's how it works.
+
+0:08:46.481,0:08:52.534
+This code alone will move all the pixels at the same time
+It's a bit strange, though.
+
+0:08:52.558,0:08:57.700
+That's the language.
+
+0:08:57.730,0:09:00.255
+I just did the x-direction.
+
+0:09:00.380,0:09:07.030
+This time I would like to express this with Green
+The y-coordinates.
+
+0:09:07.132,0:09:11.728
+If you set it to 0 and put a t here
+
+0:09:11.753,0:09:16.570
+Now, from the bottom of this one up, it's going to increase from 0 to 1.
+
+0:09:16.594,0:09:21.411
+So you have the green value of this t in there.
+
+0:09:21.482,0:09:27.505
+Here's what I mean by this.
+It's probably easier to understand if you look at the chop here.
+
+0:09:27.529,0:09:29.528
+Same with this one, x.
+
+0:09:29.529,0:09:37.260
+Here's the y in this case.
+So it's a little bit more than 20 pieces each.
+
+0:09:52.718,0:09:56.343
+Now tz, ty.
+
+0:09:56.368,0:10:01.989
+The x's are all zeros.
+It's a state of affairs where you have only y numbers.
+
+0:10:01.990,0:10:06.458
+It's like this.
+When this is happening here.
+
+0:10:06.482,0:10:10.949
+In short, it's black to green from the bottom.
+
+0:10:12.850,0:10:16.951
+Here, these numbers are
+Increasingly, little by little.
+
+0:10:16.976,0:10:25.584
+Here's a zero and 20 zeros in a row, and here's one that's a little closer to green.
+
+0:10:25.608,0:10:27.501
+It's getting to be more and more of a thing.
+
+0:10:27.526,0:10:34.750
+The final figure is this green one.
+It's right here at the top.
+
+0:10:44.849,0:10:49.779
+This is what it looks like when you do it vertically and horizontally.
+
+0:10:53.080,0:10:58.527
+I'd like to put both x and y in this.
+
+0:10:58.552,0:11:06.940
+In addition to this, you can add the r information
+That's how you get this kind of gradient.
+
+0:11:07.145,0:11:11.577
+In the x direction, it's like a red 0 to 1.
+
+0:11:11.639,0:11:17.279
+Now we have a 0 to 1 in the y direction as well.
+
+0:11:17.497,0:11:19.731
+It turns yellow here.
+
+0:11:22.325,0:11:29.360
+A state where r and g are 1
+rgb 1, 1, 0 would be here
+
+0:11:29.999,0:11:35.680
+This instance can be expressed in the same way, with the
+
+0:11:36.251,0:11:41.990
+In this case, if you already put tx in the
+I can make these things.
+
+0:11:53.680,0:11:56.250
+Here's one for you.
+
+0:11:59.763,0:12:07.126
+This Fragment Shader has 0 to 1 in it.
+I'm sure you understand.
+
+0:12:12.384,0:12:17.605
+This time.
+Using this value that changes from 0 to 1, you can use
+
+0:12:17.667,0:12:23.138
+I just showed you.
+I'd like to create an image of the stripes.
+
+0:12:23.480,0:12:30.070
+I'm sure there are many ways to do this.
+In this case, we'll use a function called sin
+
+0:12:32.060,0:12:36.467
+I'll make something else up.
+GLSL
+
+0:12:42.125,0:12:49.000
+When I say sin function, I'm talking about a trigonometric function or something like that.
+I'm sure you'll all remember this.
+
+0:12:51.388,0:12:56.348
+Like this.
+This is what we call a "sin wave".
+
+0:12:56.373,0:13:03.944
+As it varies from -1 to 1 depending on the incoming value.
+This is what a sin wave looks like when it changes so smoothly.
+
+0:13:15.485,0:13:22.289
+Let's use this value to represent the color
+That's what I'm saying, but...
+
+0:13:24.907,0:13:27.419
+I'd like to give it a shot.
+
+0:13:40.645,0:13:48.286
+Now type in "sin".
+I'd like to use the x-coordinates I just used.
+
+0:13:48.311,0:13:52.001
+vUV.st and
+I'll put it this way.
+
+0:13:52.026,0:13:53.351
+Oh, it's broken.
+
+0:13:53.391,0:13:57.976
+Not "st", but "s", like this.
+Oh, okay.
+
+0:13:58.001,0:14:05.956
+This will get the transparency in there.
+I think I'll fix it at 1 transparency.
+
+0:14:06.003,0:14:13.950
+For that reason.
+Set this color to vec3 once.
+
+0:14:22.579,0:14:25.329
+I don't know if this will work.
+I don't like it.
+
+0:14:29.438,0:14:30.657
+It goes something like this.
+
+0:14:31.274,0:14:36.859
+This TDAOutputSwizzle takes a value of vec4, so the
+
+0:14:36.860,0:14:45.371
+I made it in vec4 and here's the vec3 color information
+
+0:14:45.395,0:14:52.239
+I see there's a rgb in there.
+The colors have the same information for all the main rgb's.
+
+0:14:52.240,0:14:57.966
+Alpha has always been fixed at 1.
+That's what it's supposed to be.
+
+0:14:58.177,0:15:08.031
+All rgb's are the same, so basically.
+It's a black to white grayscale image.
+
+0:15:09.657,0:15:14.341
+I can turn this one off for a minute.
+Let's get rid of it.
+
+0:15:14.520,0:15:19.999
+So this vUV.s is basically a number between 0 and 1.
+
+0:15:20.319,0:15:27.834
+This is now a 0 to 1 sin function.
+So the results are in there.
+
+0:15:30.584,0:15:37.592
+To make this a good border.
+I'm going to crunch the numbers.
+
+0:15:38.248,0:15:44.180
+I found a calculator that calculates the sin function here
+
+0:15:44.205,0:15:49.415
+The value that goes in here is calculated by putting in radians, so
+
+0:15:49.440,0:15:53.695
+For example, if you do a sin0, you'll get a 0.
+
+0:15:53.720,0:15:59.308
+This zero is what's going on here on the left side right now.
+Think of this as a zero.
+
+0:15:59.333,0:16:01.691
+So there's 0 to 1 in here.
+
+0:16:01.716,0:16:09.170
+If this is set to 0.
+It's simply going to be 0 to 0.84 here.
+
+0:16:12.091,0:16:21.833
+Let's say, two.
+The number 0.90929743 will come in.
+
+0:16:22.235,0:16:26.354
+For example, if you feel like you want to include these kinds of numbers
+
+0:16:29.903,0:16:36.730
+If you simply double x
+This is how you do it.
+
+0:16:36.754,0:16:42.201
+It will have a value between 0 and 0.9.
+
+0:16:43.186,0:16:50.922
+I'm a little confused as it is.
+If you put the number 3.14 in here, for example.
+
+0:17:04.958,0:17:14.809
+When you put in the numbers with this, you basically go from roughly 0 to 1 like this.
+We got a number that looks like it's going to go back to zero one more time.
+
+0:17:14.880,0:17:16.622
+So there's going to be a pause here.
+
+0:17:16.647,0:17:22.413
+Let me put it this way.
+
+0:17:22.438,0:17:29.284
+Here's the number from here to here.
+We're in a situation where we've gone from 0 to 1 to get here.
+
+0:17:30.221,0:17:40.499
+And if you add in a number like 6.28, which is twice the number of pi here.
+
+0:17:40.500,0:17:43.312
+Come from 0 to 1 from here.
+
+0:17:45.046,0:17:53.009
+1 to 0, -1, and 0 in.
+That's what the numbers are so far in.
+
+0:17:57.474,0:18:07.195
+In the GLSL, all numbers below zero are supposed to be the same as zero.
+You can't put it in color.
+
+0:18:07.220,0:18:13.001
+It's all in black there, so you have to go from 0 to 1, 1 to 0.
+
+0:18:13.026,0:18:20.705
+From there, we go from 0 to -1 and then back to 0 again, which is what we have in here.
+
+0:18:22.837,0:18:28.509
+Now we're going to add more numbers here.
+
+0:18:29.779,0:18:37.966
+Two rounds like this, it's like having two waves of this.
+It goes something like this.
+
+0:18:39.333,0:18:45.270
+We don't need to use this value of pi, we can just put 10 or something in there.
+
+0:18:45.294,0:18:47.700
+Oh, I'm back in a bit.
+
+0:18:47.825,0:18:53.026
+If you put 20 or so in here.
+
+0:18:54.780,0:18:58.250
+As the waves grew and grew and grew.
+It comes down to this.
+
+0:19:02.336,0:19:08.937
+The more you put in any number, the more you put in, the more you get.
+As the cycle gets faster and faster.
+
+0:19:08.962,0:19:15.009
+Just like this. Come on.
+It's like this.
+
+0:19:15.010,0:19:22.450
+0 to 1, and then -1.
+So the expression is repeated.
+
+0:19:22.727,0:19:27.971
+I think you can see it here.
+The black part is inevitably bigger than this white part.
+
+0:19:27.996,0:19:39.634
+Because it's this basic 1 to -1 cycle that repeats
+We'll go from 0 to -1 and everything from -1 to 0 will be completely black.
+
+0:19:39.659,0:19:44.921
+That means there are more black areas.
+
+0:19:44.945,0:19:50.206
+I'll put the appropriate numbers in here.
+
+0:19:50.231,0:19:53.686
+I thought a border like this would be cool.
+
+0:19:57.457,0:20:04.488
+I think this is still pretty good.
+I'd like to try to move this, or rather, an animation this time.
+
+0:20:05.457,0:20:10.355
+If it's a standalone GLSL, it's a standalone, or maybe just this one thing.
+
+0:20:10.379,0:20:16.732
+I can't save the previous frame, or variables from the previous frame, or anything like that, but
+
+0:20:20.303,0:20:26.898
+We're trying to get things moving here.
+I'd like to give this the variable of time.
+
+0:20:28.226,0:20:34.767
+At times like this, you know.
+When you send variables from the CPU to the GPU and GLSL.
+
+0:20:34.792,0:20:38.308
+We'll use something called a uniform variable
+
+0:20:38.333,0:20:44.921
+It first declares the uniform variable in the code
+
+0:20:45.233,0:20:49.099
+So this is the one we already have in our sample.
+
+0:20:50.100,0:20:54.631
+With the word "uniform" at the top of my head.
+This is a mold.
+
+0:20:54.656,0:21:00.289
+I'm going to spend some time on this one, so I'm going to keep it on float.
+
+0:21:01.100,0:21:05.125
+For example, you can create a variable like this
+
+0:21:05.150,0:21:11.910
+I don't care what it is.
+That's my rule.
+
+0:21:12.269,0:21:19.169
+You've created a variable called uniform time
+
+0:21:19.194,0:21:24.915
+For example, in ShaderToy, it's iGlobalTime.
+
+0:21:24.940,0:21:32.682
+The service, or the software.
+I mean, there's some etiquette to it.
+
+0:21:32.707,0:21:38.395
+Basically, I can handle anything.
+Use what you're comfortable with.
+
+0:21:38.420,0:21:44.460
+This is how I use it now.
+
+0:21:44.480,0:21:48.117
+Now how do we get to this value?
+So that's what I'm saying.
+
+0:21:51.690,0:21:54.926
+I'm going to have to manually write this in here.
+
+0:21:55.012,0:21:57.772
+There are some useful features...
+
+0:21:57.797,0:21:59.706
+I'll save one.
+
+0:21:59.731,0:22:04.194
+If you press the "Load Uniform Name" button
+It will automatically go in here.
+
+0:22:04.219,0:22:06.397
+You know what I'm declaring here.
+
+0:22:06.422,0:22:09.674
+One click here.
+
+0:22:09.699,0:22:14.731
+I'm not in it.
+Is there something wrong with that?
+
+0:22:14.755,0:22:22.600
+Well, no, it's just that there's not much in there.
+I'd like to do it manually.
+
+0:22:22.855,0:22:27.995
+Put it in here like uTime.
+So that's the Uniform name to match this name.
+
+0:22:32.480,0:22:37.373
+As you can see, there are four of them.
+I can use it as a vec4.
+
+0:22:37.398,0:22:42.437
+You can also use it in this first one in the form of a float
+
+0:22:44.741,0:22:54.977
+Here's the usual absTime.frame
+I put these in.
+
+0:22:58.480,0:23:06.834
+Now that we have this value in here, the
+This value can be used in GLSL
+
+0:23:06.859,0:23:12.452
+For example, if you put it at +, you can put it at
+So this is why the animation runs.
+
+0:23:13.898,0:23:18.694
+I thought it was a bit fast.
+Let me put it this way.
+
+0:23:18.719,0:23:24.164
+What's going on is basically
+It's like this wave is moving.
+
+0:23:26.220,0:23:35.673
+This is the kind of wave that is created when such a value is entered against this sin.
+So that's what I'm saying.
+
+0:23:35.800,0:23:39.471
+I'm moving it like this.
+This is the kind of image I'm looking for.
+
+0:23:47.059,0:23:55.439
+This, of course, is.
+I'm doing the colors on the side now.
+
+0:23:55.440,0:24:00.779
+You can easily turn it upside down like this
+
+0:24:02.192,0:24:08.929
+If you change this speed.
+And the animation will be faster.
+
+0:24:11.016,0:24:18.612
+If you change the numbers here, you can change the cycle.
+That's how it works.
+
+0:24:32.659,0:24:43.301
+This time, sir.
+We all learned about GLSL's coordinate system in TouchDesigner.
+
+0:24:44.491,0:24:47.545
+I made a little animation.
+
+0:24:49.076,0:24:55.340
+I'll see you next time.
+I wish I could make things a little more complicated.
+
+0:25:00.740,0:25:08.734
+In addition to the YouTube tutorials on TDSW
+We offer live streaming workshops about two weekends a month.
+
+0:25:08.759,0:25:16.719
+If you are interested in TDSW through the tutorial
+Please come and visit us at our live streaming workshops!
+
+0:25:16.720,0:25:19.845
+Also, TDSW uses Patreon
+
+0:25:19.870,0:25:24.161
+The current plan to support the creation of YouTube and unlimited workshop videos
+
+0:25:24.186,0:25:30.908
+There are three plans: Workshop Video and Live Streaming Video Plan
+
+0:25:30.909,0:25:36.997
+It is more profitable than attending the workshop by itself.
+I hope you will consider it.
+
+0:25:37.022,0:25:42.431
+Please check out the link in the summary section!
+
+0:25:42.456,0:25:47.288
+Thank you for watching.
+Please subscribe to the channel if you'd like.
+
+0:25:47.313,0:25:48.966
+goodbye
+
+0:25:50.526,0:26:05.890
+[Music]
