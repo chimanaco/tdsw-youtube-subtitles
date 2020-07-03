@@ -11,8 +11,7 @@ GLSL for dummies :)
 Playlist  
 https://www.youtube.com/playlist?list=PLH6Y6o7cLK9jZGSyiAkDxePeBouxU_-eT
 
-Currently we are open for contribution for the following. 
-* /glsl/001en.sbv
+We are open for contribution for English or any languages you would like to. 
 
 ## Contact
 Feel free to contact us if you have any questions.  
