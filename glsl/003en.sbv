@@ -1,0 +1,582 @@
+0:00:00.023,0:00:08.765
+[Music]
+
+0:00:09.727,0:00:13.993
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.805,0:00:20.856
+This will be the third episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:20.881,0:00:24.255
+Last time, I told you about the coordinate system.
+
+0:00:24.442,0:00:32.264
+This time with the texture uv.
+In the end, I'd like to make a zoom effect like this
+
+0:00:33.860,0:00:36.281
+The process is incredibly simple.
+
+0:00:36.313,0:00:38.781
+First, load this image into GLSL.
+
+0:00:38.806,0:00:45.238
+After that, we'll treat the UV.
+This is the kind of scaling process we're going to do.
+
+0:00:45.268,0:00:47.268
+So let's get to it.
+
+0:00:47.293,0:00:50.018
+Close this.
+
+0:00:51.925,0:00:56.411
+This is the TouchDesigner screen.
+This is the editor screen.
+
+0:00:56.568,0:01:03.304
+First, place the GLSL TOP here
+It's like this.
+
+0:01:03.367,0:01:06.494
+If you open the editor in
+
+0:01:06.525,0:01:10.260
+GLSL displayed here.
+
+0:01:10.517,0:01:12.986
+That's what it says.
+
+0:01:13.399,0:01:19.026
+This is the default for this one.
+That's the part that's been commented out.
+
+0:01:19.051,0:01:24.412
+Here's how it works.
+Let's comment out this one.
+
+0:01:25.420,0:01:30.560
+I'm getting an error.
+What does this do?
+
+0:01:30.909,0:01:37.481
+It's called sTDInputs.
+It's a function that loads the TouchDesigner texture.
+
+0:01:37.942,0:01:44.155
+If the s is a sampler and the TouchDesigner
+So that means 2D is in.
+
+0:01:44.225,0:01:49.274
+As this TD is attached to it.
+This is a TouchDesigner specific function
+
+0:01:49.649,0:01:54.401
+This is loading the texture uv.
+in the form of
+
+0:01:54.878,0:01:57.768
+Let's actually load the image
+
+0:01:58.940,0:02:05.036
+Movie File In.
+Like this.
+
+0:02:06.473,0:02:13.194
+Or a banana, for that matter.
+I'd like to use this image of a flower this time.
+
+0:02:13.241,0:02:15.069
+Like this.
+
+0:02:15.483,0:02:18.850
+It's listed as 1280x720.
+
+0:02:18.875,0:02:23.340
+If you put this in this #1 spot.
+
+0:02:23.460,0:02:28.141
+This one starts with a zero, so 0, 1, 2 and so on.
+And this corresponds to a zero here.
+
+0:02:28.380,0:02:29.923
+Put this on.
+
+0:02:30.489,0:02:38.304
+Automatically, this 1280x720 pixel
+I joined this GLSL.
+
+0:02:46.300,0:02:49.357
+Just like we did last time.
+
+0:02:49.388,0:02:56.288
+What values are in the uv?
+I'd like to see it.
+
+0:02:56.340,0:03:01.061
+That's a zero and a one.
+Like this.
+
+0:03:01.097,0:03:06.784
+If you do this, there's an xy in here and
+If x is 0 to 1
+
+0:03:07.600,0:03:10.909
+If y is 0 to 1 and
+
+0:03:11.020,0:03:15.840
+and this is the value of 1, 1
+
+0:03:17.660,0:03:25.371
+I'll just comment on this one again, and then I'll do this
+Image.
+
+0:03:25.540,0:03:30.209
+I'm going to scale this up and down.
+
+0:03:31.120,0:03:35.340
+You will have to deal with the uv value
+
+0:03:39.830,0:03:45.652
+Using the variable
+This is so much more than just a position.
+
+0:03:45.715,0:03:48.066
+I don't care what it is.
+
+0:03:48.762,0:03:53.764
+We'll use this uv value
+
+0:03:53.789,0:04:00.252
+This is like the same number that's in there now with the p in it.
+
+0:04:00.277,0:04:03.154
+The vUV.st and this p
+
+0:04:03.623,0:04:10.646
+Here's what it would look like if we multiply it by 2
+
+0:04:11.029,0:04:16.724
+It's going to get bigger because of my "Hangover 2".
+It's the other way around.
+
+0:04:17.040,0:04:20.894
+On the other hand, try multiplying it by 0.5 or something like that.
+
+0:04:20.964,0:04:23.940
+It's getting bigger.
+It's like this.
+
+0:04:24.080,0:04:29.637
+Let's go back to two again to see what's going on.
+I'd like to take a look at it.
+
+0:04:30.480,0:04:38.740
+I'll go back to the uv display here one more time.
+So this is how it's going to be.
+
+0:04:40.940,0:04:43.434
+I'll have to put this p in here.
+
+0:04:43.459,0:04:50.942
+This is what it looks like when you put a p in
+I think it's a little weird.
+
+0:04:51.100,0:04:58.141
+In short, this time it was 0 to 1 before.
+So it's a 0 to 2 thing.
+
+0:04:58.166,0:05:01.582
+I'm doubling it here.
+
+0:05:01.607,0:05:05.199
+Values from 0 to 1 can be found here
+This is the place.
+
+0:05:06.738,0:05:08.355
+Like this.
+
+0:05:08.503,0:05:11.667
+So here it's 0,0 and here it's actually 2,2.
+
+0:05:12.009,0:05:17.034
+So here's the one and one.
+So there's an image in here that has a value of 0 to 1.
+
+0:05:17.074,0:05:19.042
+And this is how it goes.
+
+0:05:19.081,0:05:27.060
+If you look at this in TOP To.
+It's like this.
+
+0:05:28.505,0:05:33.859
+TOP To is by default this middle
+I'm taking values around here.
+
+0:05:33.921,0:05:41.907
+At this point, the r's going to be one.
+You can see from here that it's not going to change in one like this
+
+0:05:42.173,0:05:47.969
+x.
+So everything from here to here is the same.
+
+0:05:52.040,0:05:56.003
+This is what you get when you make it a 4 or something.
+
+0:05:56.028,0:06:03.300
+We're one here, and the rest will be the same from here.
+And this is how it goes.
+
+0:06:07.670,0:06:14.780
+Let's just leave it at that.
+I'll bring it back.
+
+0:06:17.031,0:06:19.760
+Like this.
+
+0:06:21.889,0:06:29.469
+Input Extended Mode UV for GLSL options
+It's called
+
+0:06:29.680,0:06:33.854
+It defaults to zero.
+
+0:06:34.026,0:06:40.979
+Here's what it's all about.
+A value other than 0 to 1
+
+0:06:41.409,0:06:46.885
+When the value is less than 0 and greater than 1
+It's about how to handle it.
+
+0:06:47.034,0:06:55.278
+When it's Zero, it doesn't do anything. If you set it to Hold.
+You know, the kind that shows these edge pixels as they are.
+
+0:06:55.645,0:06:59.618
+When you go gurgling to the right and stretching upward and upward
+It's like this.
+
+0:07:00.282,0:07:07.104
+There's more variety, so here it is.
+If you use "Repeat", you can get a repetition like this
+
+0:07:07.129,0:07:15.110
+I'll call it Mirror.
+It's supposed to be displayed in reverse like this.
+
+0:07:15.150,0:07:19.572
+I think I'll leave it at Repeat.
+Here's what it looks like.
+
+0:07:25.920,0:07:35.266
+Now, here in the variable that's now 2.
+I'd like to include a uniform variable so that I can control it externally
+
+0:07:37.309,0:07:42.020
+Use this.
+uniform float
+
+0:07:42.084,0:07:48.070
+This time, I'm letting him Repeat.
+Let's make it a variable called uRepeat
+
+0:07:48.095,0:07:54.035
+If you put this uRepeat in here
+
+0:07:54.180,0:07:55.250
+This way, it's a little
+
+0:07:59.710,0:08:06.569
+I got a warning.
+Since uniform uRepeat is showing as unassigned
+
+0:08:06.655,0:08:09.813
+this time
+I couldn't do it last time, but if I press this button.
+
+0:08:11.251,0:08:13.664
+You got in here automatically.
+
+0:08:13.688,0:08:20.080
+It's 0.5, so it's twice as big as the other way around.
+
+0:08:20.229,0:08:28.200
+I'm going to make this one here.
+If you set it to 2, this is what it looks like.
+
+0:08:29.110,0:08:34.766
+Now let's put some numbers in here.
+I want to make a little animation.
+
+0:08:34.964,0:08:37.003
+First, LFO.
+
+0:08:37.190,0:08:42.364
+I'm going to ramp the LFO.
+I don't care what it is.
+
+0:08:42.450,0:08:49.679
+Put a Math CHOP in here.
+
+0:08:49.680,0:08:53.471
+If you put a null at the end, you can add
+
+0:08:53.737,0:08:59.209
+It's a bit of a mess, so we'll move on.
+Like this.
+
+0:09:00.279,0:09:01.493
+Like this.
+
+0:09:01.570,0:09:09.109
+It's a 0 to 1 value here.
+Let's make this place from 0 to 3, for example.
+
+0:09:09.230,0:09:15.693
+If you do this, this uRepeat will be set to a value between 0 and 3
+That's what it looks like.
+
+0:09:15.718,0:09:18.240
+It came out this way.
+
+0:09:20.540,0:09:23.339
+I'm feeling a little busy.
+
+0:09:24.183,0:09:30.810
+Turn down the frequency a bit.
+Let's keep it at about 0.5.
+
+0:09:33.805,0:09:40.355
+At this rate, yes.
+The bottom left corner is animated with the standard.
+
+0:09:40.659,0:09:43.698
+I'd like to take this to the middle.
+
+0:09:43.808,0:09:49.630
+Just to make it clear once.
+I'd like to turn this Repeat off and turn it into Zero.
+
+0:09:49.699,0:09:53.889
+Also, I was thinking of stopping the animation one more time.
+
+0:09:56.816,0:10:01.550
+We have to stop this.
+I can't stop.
+
+0:10:01.910,0:10:04.902
+If you make this one, one, it's always one.
+
+0:10:05.720,0:10:07.980
+We can't keep going back to one.
+
+0:10:08.407,0:10:11.329
+I put it on two all the way.
+It's in this state.
+
+0:10:16.599,0:10:24.080
+I'd like you to zoom in on that, more or less.
+Let me stop you right there for a moment.
+
+0:10:26.230,0:10:30.120
+How do we do this?
+
+0:10:35.110,0:10:37.792
+I'm going to change the code around here a bit.
+
+0:10:37.948,0:10:42.115
+p
+
+0:10:46.006,0:10:49.750
+Once I split this code into two parts.
+
+0:10:49.860,0:10:59.063
+So here's what we're going to do.
+Once we take this reference point up a bit.
+
+0:10:59.088,0:11:05.196
+Minus 0.5
+
+0:11:05.670,0:11:09.710
+Take it upstairs once.
+
+0:11:09.969,0:11:19.458
+Now I'm going to take it to the bottom left corner.
+This way, it will move in the middle like this.
+
+0:11:24.141,0:11:29.172
+I'm going to put this repeat of what I did earlier again.
+When it comes to things like this.
+
+0:11:29.279,0:11:35.029
+I'd like to move it around a bit more.
+Back to 0-3 again.
+
+0:11:36.209,0:11:42.086
+This is what the animation looks like.
+
+0:11:44.930,0:11:51.730
+If you set the repeat value here to, say, Hold, you'll get
+
+0:12:00.140,0:12:05.060
+Yes.
+And this is what it looks like when you set it to Hold or something.
+
+0:12:05.520,0:12:11.720
+When I zeroed in on it, there was nothing.
+This is how it works with Mirror
+
+0:12:18.589,0:12:25.175
+I made one of these.
+You may have already noticed this.
+
+0:12:25.200,0:12:31.580
+This process.
+You can do the exact same thing with Transform TOP.
+
+0:12:32.450,0:12:39.194
+I'm getting a Transform TOP error.
+I put this in here, and it goes like this.
+
+0:12:42.789,0:12:46.672
+Here at Scale.
+
+0:12:47.070,0:12:52.769
+I'll use the uRepeat which is included here
+
+0:12:54.525,0:12:56.369
+Like this.
+
+0:12:57.100,0:12:59.910
+So this is the opposite of what you're doing.
+
+0:12:59.935,0:13:08.460
+This is just the opposite of what we're doing.
+
+0:13:10.610,0:13:15.910
+I can break it up for you like this and you'll get the same movement.
+
+0:13:17.379,0:13:22.379
+I saw it here earlier on GLSL.
+
+0:13:22.780,0:13:24.235
+What was it again?
+
+0:13:24.260,0:13:29.352
+Input Extended Mode There is something similar to UV
+
+0:13:29.618,0:13:36.840
+It works exactly the same way.
+You can get this in by selecting Repeat here
+
+0:13:40.550,0:13:47.200
+In this case, this pivot was originally set to 0.5.
+It's designed to work in the middle reference.
+
+0:13:47.521,0:13:55.414
+If this is set to 0, the previous
+It's going to be animated like a state.
+
+0:13:55.439,0:13:58.090
+Here.
+
+0:14:00.810,0:14:08.810
+This is how the TOP of TouchDesigner looks like
+So it's mostly made of GLSL's wrapper.
+
+0:14:10.259,0:14:14.024
+Basically, if you use these things as they are.
+It's not a problem.
+
+0:14:14.066,0:14:18.675
+If it's a situation that's pretty much a performance concern, or
+If it was a serious situation.
+
+0:14:18.964,0:14:22.091
+That's more than using a lot of these TOPs.
+
+0:14:22.208,0:14:27.771
+It's better to write them all together in one GLSL.
+You can improve your performance.
+
+0:14:27.796,0:14:32.953
+So I know that this is what you can do.
+I think there's no harm in that.
+
+0:14:33.094,0:14:40.961
+Of course, if it was any other software in TouchDesigner
+I can't use Transform TOP or anything like that.
+
+0:14:41.550,0:14:45.815
+I think this kind of knowledge would be useful.
+
+0:14:45.901,0:14:49.839
+There's a lot of stuff on the top.
+
+0:14:50.100,0:14:57.077
+Like Kinect or Nvidia Flex, for example.
+This kind of thing is already a built-in SDK.
+
+0:14:57.102,0:15:00.000
+I can't really write quickly on GLSL for a moment.
+
+0:15:00.025,0:15:07.709
+For example, like this Add or Circle.
+These are pretty easy to make.
+
+0:15:09.454,0:15:16.929
+After doing some effects, we're going to do some Procedual Drawing.
+It's like this geometric animation.
+
+0:15:17.405,0:15:23.641
+I'd like to make a simple animation in GLSL, so I'm going to
+I don't know how many times this is going to happen.
+
+0:15:23.666,0:15:29.470
+If you're interested, I hope to see you again then.
+
+0:15:30.223,0:15:32.926
+That's it.
+
+0:15:36.204,0:15:44.024
+In addition to the YouTube tutorials on TDSW
+We offer live streaming workshops about two weekends a month.
+
+0:15:44.470,0:15:50.993
+If you are interested in TDSW through the tutorial
+Please come and visit us at our live streaming workshops!
+
+0:15:51.376,0:15:54.696
+Also, TDSW uses Patreon
+
+0:15:54.850,0:15:57.930
+Currently, the YouTube Tutorial Creation Support Plan
+
+0:15:57.970,0:16:00.688
+Workshop Video Plan
+
+0:16:00.713,0:16:07.223
+Workshop Videos and Live Streaming Video Plan
+There are three plans available
+
+0:16:07.699,0:16:14.792
+It is more profitable than attending the workshop by itself.
+I hope you will consider it.
+
+0:16:15.136,0:16:20.544
+You can find these links in the overview section, so please check them out!
+
+0:16:21.699,0:16:26.691
+So thank you for watching.
+Please subscribe to the channel if you'd like.
+
+0:16:26.716,0:16:28.941
+goodbye
+
+0:16:29.847,0:16:43.210
+[Music]
