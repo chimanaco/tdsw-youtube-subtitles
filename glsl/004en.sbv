@@ -1,0 +1,928 @@
+0:00:00.007,0:00:08.906
+[Music]
+
+0:00:11.280,0:00:15.319
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:15.662,0:00:21.505
+This will be the fourth episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:22.724,0:00:28.513
+This time with a conditional branch.
+Eventually, we'll be able to do something like what you're seeing now.
+
+0:00:28.579,0:00:36.735
+It's divided into four sections, and each section has a different color and
+I'd like to make something that is subject to expansion and contraction.
+
+0:00:38.386,0:00:40.824
+Well, this time we're going to do it.
+
+0:00:40.849,0:00:45.341
+First, a conditional branch using an if statement
+
+0:00:45.610,0:00:50.805
+Then a conditional branch using the step and mix functions
+
+0:00:51.420,0:01:00.422
+At the end, each of those branches is a color or
+Scaling and different processing.
+
+0:01:01.086,0:01:04.370
+So let's get to it.
+
+0:01:12.280,0:01:20.876
+This is the GLSL TOP we will be working on.
+It's almost identical to the default one.
+
+0:01:23.890,0:01:28.882
+This is how the texture is already loaded
+
+0:01:28.990,0:01:36.966
+We did it last time, but we put a value of uv in the value of p.
+
+0:01:36.991,0:01:44.767
+So I'd like to start with an if statement
+
+0:01:45.066,0:01:47.245
+if
+
+0:01:47.270,0:01:53.190
+In this case, I'd like to separate the x-coordinate locations.
+
+0:01:53.215,0:01:54.473
+first (of all)
+
+0:01:57.314,0:02:00.100
+I'll write it down.
+
+0:02:01.128,0:02:09.066
+When x is less than or equal to 0.5, this is what you do.
+I've written code to do something else at other times
+
+0:02:09.091,0:02:16.114
+If you make a split.
+We're going to put a different color in here for each of them.
+
+0:02:16.180,0:02:22.520
+This time, sir.
+First of all, declare vec4 color above, and then use
+
+0:02:36.029,0:02:39.005
+Each of these colors.
+
+0:02:41.609,0:02:46.281
+I'm going to put it in this if statement
+
+0:02:47.310,0:02:54.849
+Now... when it's less than this 0.5 and when it's not.
+It's the same one in there.
+
+0:03:01.187,0:03:10.439
+For example, bgra for rgba.
+Let me put it this way.
+
+0:03:10.920,0:03:19.375
+If you do this, the color of the image changes at -0.5.
+I can make these things.
+
+0:03:23.838,0:03:33.486
+Right now, we're using 0.5 as our threshold, but if we make it smaller, we're going to be able to make it smaller.
+The threshold takes over and goes to the left.
+
+0:03:33.511,0:03:36.220
+That's a 0.2 location.
+
+0:03:36.321,0:03:40.108
+If you do 0.8 or something like that, they'll come this way.
+
+0:03:40.197,0:03:46.230
+I'd like to set it back to 0.5.
+
+0:03:47.050,0:03:53.067
+I can do conditional branching with GLSL with no problem with this.
+
+0:03:53.091,0:03:56.202
+Probably doing a lot of research on GLSL.
+
+0:03:56.227,0:04:02.086
+An if statement is a slower process than an
+I think you'll see a lot of people saying it's better not to use it.
+
+0:04:02.111,0:04:07.476
+You can write like this when you do.
+I'm sure there will be a lot of things that come out of this.
+
+0:04:07.560,0:04:11.884
+I'd like to introduce you to one of the ways to write it.
+
+0:04:14.306,0:04:16.376
+I'm going to copy this.
+
+0:04:16.401,0:04:21.989
+I'd like to write another piece of code over here.
+
+0:04:32.390,0:04:35.975
+For the sake of the code we're about to write.
+
+0:04:38.337,0:04:45.915
+This color that is vec4.
+I'd like to use it as a vec3.
+
+0:04:46.282,0:04:50.672
+Leave one comment out of this area.
+
+0:04:51.148,0:04:58.177
+I got an error.
+vec4(color, 1.0)
+
+0:04:58.202,0:05:04.089
+I want to keep the alpha fixed.
+I'll make it this way.
+
+0:05:06.733,0:05:14.085
+The first way to do this conditional branch is to use the step function
+
+0:05:16.070,0:05:22.804
+This is called the OpenGL quick reference card, and it's a
+It's what's called a cheat sheet or something like that.
+
+0:05:22.851,0:05:26.304
+I'll leave this link in the summary section later, too.
+
+0:05:26.358,0:05:29.756
+You can see how to use it here
+
+0:05:29.781,0:05:35.335
+It's a step function, so you have to find the step.
+It's right around here.
+
+0:05:35.468,0:05:40.093
+It's very small, so I'm going to make it bigger.
+
+0:05:40.186,0:05:41.389
+This one.
+
+0:05:42.440,0:05:48.838
+In the setp function, if you take the argument edge and x, you can use
+
+0:05:48.863,0:05:57.925
+So if x is less than edge, it returns 0.
+In the opposite case, if you return 1, you can use it like this
+
+0:05:58.751,0:06:01.555
+I'd like to try to write some code with it.
+
+0:06:01.580,0:06:07.711
+TouchDesigner and this one.
+
+0:06:07.736,0:06:14.373
+For example, if the float edge is 0.5 and
+
+0:06:14.397,0:06:19.078
+If float x is p.x and
+
+0:06:19.103,0:06:21.935
+When this is happening.
+
+0:06:22.630,0:06:26.450
+The result.
+
+0:06:26.646,0:06:31.915
+step(edge, p.x) and
+
+0:06:31.940,0:06:33.940
+It goes like this.
+For example
+
+0:06:34.025,0:06:37.982
+I'd like to visualize this result a bit.
+
+0:06:38.007,0:06:47.910
+First of all, if you put this result in vec3
+It goes something like this.
+
+0:06:49.009,0:06:54.785
+I think you'll see what I mean when you see this.
+
+0:06:54.810,0:07:01.952
+The value of x in p is less than 0.5
+So the left half is zero.
+
+0:07:02.024,0:07:07.899
+That means the right half has a value of 1 in it.
+
+0:07:08.149,0:07:15.698
+If we express this in an if statement, the left side is false and
+The right side is true.
+
+0:07:15.723,0:07:20.217
+Here's one for starters.
+Step function.
+
+0:07:21.200,0:07:25.936
+I'll also use the mix function
+
+0:07:26.085,0:07:33.975
+You know, I'd come back here again... and I'd have to do a search.
+Here's how to use it.
+
+0:07:34.000,0:07:39.205
+The mix takes the values x and y and a
+
+0:07:42.085,0:07:47.077
+In this case, from this x, the value of y is transitioned by a
+
+0:07:47.210,0:07:49.788
+It's called linear interpolation.
+
+0:07:50.470,0:07:58.329
+For example, if this x is 0, then y is 100
+Suppose that the value
+
+0:07:58.353,0:08:02.782
+When a moves from 0 to 1.
+This is where we're moving from 0 to 100.
+
+0:08:03.649,0:08:08.964
+So, for example, if you put 0.5 in a, you'll get
+When the number 50 comes back.
+
+0:08:09.276,0:08:10.995
+It's like this.
+
+0:08:13.057,0:08:16.690
+I'd like to write a little bit of this code
+
+0:08:19.300,0:08:25.990
+0 of a mix, 1
+
+0:08:26.302,0:08:34.060
+That's what happened a few minutes ago.
+This kind of thing.
+
+0:08:37.964,0:08:44.854
+What I want to do this time is
+mix On the left.
+
+0:08:47.870,0:08:53.698
+We'll put in this texture.
+Texture p
+
+0:08:58.810,0:09:04.911
+When the vec3 rgb color
+
+0:09:05.083,0:09:12.335
+If you don't, you'll get a vec4 back.
+rgb Put this in.
+
+0:09:13.148,0:09:21.509
+Another one, this time with a different color as gbr.
+You can put it in here.
+
+0:09:23.640,0:09:35.163
+I was putting 0s and 1s in there for now.
+Put rgb on the left side and gbr on the right
+
+0:09:35.188,0:09:38.875
+in this way
+Oh, you're getting an error.
+
+0:09:39.703,0:09:45.814
+What's funny?
+fragColor No shin color here.
+
+0:09:45.978,0:09:52.230
+This is already vec3, so I don't need this one.
+This is how you do it.
+
+0:09:52.255,0:09:54.722
+Oh, you're getting the error again.
+
+0:09:58.769,0:10:05.050
+I need this in here.
+It's like this. It's like this.
+
+0:10:07.784,0:10:12.075
+They're split down the middle.
+The colors are a little different, the code is a little different.
+
+0:10:12.100,0:10:16.780
+bgr
+It's a gbr, so bgr
+
+0:10:18.990,0:10:23.560
+Like this.
+This way, you'll get exactly the same thing as above.
+
+0:10:25.099,0:10:32.749
+Since this step function returns 0 or 1, the
+The 0s and 1s come back with a crisp split.
+
+0:10:35.470,0:10:44.422
+This is where the conditional branch with an if statement and
+I would like to compare the conditional branching of the step and the mix
+
+0:10:44.628,0:10:53.325
+Since this still hasn't been cooked
+Just put some absTime or something in here.
+
+0:10:53.982,0:11:01.054
+It's moving like it's cooking.
+I'd like to compare them as they are cooked
+
+0:11:01.664,0:11:09.273
+If you use an if statement, it's usually 190
+It was around 200.
+
+0:11:09.445,0:11:12.627
+If you don't use if statements, here's a
+
+0:11:14.111,0:11:17.595
+I mean, around 110.
+Right here.
+
+0:11:19.100,0:11:28.271
+Now you can see that the process is faster using this step and mix.
+I think that's clear.
+
+0:11:29.224,0:11:35.765
+Also, the step function is...
+I used a float just a few minutes ago.
+
+0:11:37.030,0:11:41.204
+You can also take a vector value
+I'd like to give it a shot.
+
+0:11:42.470,0:11:47.712
+I'm going to set this edge to vec3.
+
+0:11:49.850,0:11:58.422
+For example... 0.2, 0.5, 0.6
+
+0:11:58.447,0:12:03.943
+And put in.
+Here's how to write this.
+
+0:12:04.146,0:12:09.771
+When comparing this edge and x, the x is also
+He said he'd have to go to vec3.
+
+0:12:09.796,0:12:12.397
+I'll try to take the same mold.
+
+0:12:12.470,0:12:17.104
+So, as a vec3
+
+0:12:17.128,0:12:22.204
+If you include this p.x.
+It goes like this.
+
+0:12:22.229,0:12:25.618
+I'm getting a few errors.
+Don't worry about it for now
+
+0:12:25.821,0:12:32.579
+You don't have to put it in here.
+I didn't want to have to put it in.
+
+0:12:41.520,0:12:44.631
+This is where x, not p.x
+
+0:12:44.656,0:12:47.702
+Right here.
+It goes like this.
+
+0:12:47.727,0:12:51.546
+It's a little hard to see, so here you go.
+I'd like to change that.
+
+0:12:54.889,0:12:58.870
+RGB
+
+0:13:00.210,0:13:03.600
+Just to be clear.
+
+0:13:03.929,0:13:16.470
+Zero. This is a zero and this is a one.
+
+0:13:16.524,0:13:20.270
+I'll put these numbers in.
+
+0:13:21.048,0:13:22.969
+So this is what it looks like.
+
+0:13:23.165,0:13:31.421
+Black on the left and white on the right.
+Let's change this one up a bit.
+
+0:13:31.446,0:13:36.235
+Let's call it WHITE with BLACK.
+
+0:13:36.260,0:13:40.871
+I think it's easy to understand.
+BLACK WHITE
+
+0:13:41.630,0:13:51.554
+Depending on this value, the
+It's a form of transition from black to white.
+
+0:13:51.880,0:14:00.640
+Earlier, there was only one of these junctions.
+This time, there are three forks in the road.
+
+0:14:01.273,0:14:03.246
+It's divided like this
+
+0:14:03.270,0:14:07.650
+We'll see how it actually works.
+I'd like to write a little bit about it.
+
+0:14:07.675,0:14:10.763
+I don't need this, so turn it off.
+
+0:14:10.833,0:14:14.895
+That's a start.
+It's this p.x.
+
+0:14:15.208,0:14:22.569
+If x is less than 0.2, in this case
+
+0:14:40.453,0:14:43.710
+It's like this.
+
+0:14:46.220,0:14:49.863
+First of all, this vec3(0., 0., 0.)
+You're going in here.
+
+0:14:49.956,0:14:54.177
+If x is less than 0.2
+What does this mean?
+
+0:14:54.202,0:15:01.766
+This p.x value is compared to this 0.2, 0.5, and 0.6
+compared to this 0.2, 0.5, and 0.6 respectively.
+
+0:15:01.860,0:15:07.235
+Since the result p.x is smaller than the result
+This is what it looks like when the zeroes go in.
+
+0:15:07.274,0:15:08.672
+There's a zero in there.
+
+0:15:12.087,0:15:15.010
+Now.
+
+0:15:17.689,0:15:25.543
+If x is greater than 0.2 and
+If x is less than 0.5, you get this value
+
+0:15:26.152,0:15:32.722
+In this case, since p.x is greater than 0.2
+There's a one in here.
+
+0:15:32.800,0:15:35.638
+If you do this, you'll see red like this
+this means that
+
+0:15:36.838,0:15:45.528
+And now between 0.5 and 0.6.
+Between here and here.
+
+0:15:45.645,0:15:53.817
+This color is greater than 0.2 and less than 0.6, which is greater than 0.5
+therefore
+
+0:15:53.841,0:15:57.499
+1, 1, 0 and
+It goes like this.
+
+0:15:58.230,0:16:05.615
+Lastly, if the value is greater than 0.6
+
+0:16:07.209,0:16:12.373
+Everything is bigger than this 0.2.
+It's bigger than 0.5 and bigger than 0.6.
+
+0:16:12.490,0:16:15.420
+This is one and
+It goes like this.
+
+0:16:15.445,0:16:20.420
+Black, red, yellow and white.
+This is the kind of thing that comes up.
+
+0:16:20.445,0:16:26.452
+I'm going to comment out on this like this
+It's like this.
+
+0:16:26.477,0:16:32.220
+If you change these numbers.
+Sometimes they're a little off.
+
+0:16:33.620,0:16:38.919
+With an if sentence, I'd have to write four more of these.
+
+0:16:39.020,0:16:42.409
+But in this case, it's just this one line
+
+0:16:42.910,0:16:48.129
+Since we only need one line, or rather this edge calculation and this one line
+
+0:16:48.154,0:16:51.951
+I'm sure it will be very refreshing.
+
+0:16:52.019,0:16:55.706
+And the process is light.
+Benefits.
+
+0:16:57.180,0:17:02.807
+That's what I was saying, but...
+At first glance, I think it's a little hard to get to know.
+
+0:17:03.127,0:17:08.145
+Of course, the more if-sentences you have, the more
+I'm sure there's going to be a difference in performance.
+
+0:17:08.170,0:17:12.176
+If you're doing it and it doesn't affect your performance that much, then
+
+0:17:12.530,0:17:16.859
+I'm more of an if statement.
+It's easy to understand, and it's not a bad idea.
+
+0:17:16.884,0:17:19.806
+Personally, I think it is.
+
+0:17:19.900,0:17:24.923
+therefore
+This time, sir.
+
+0:17:24.948,0:17:30.856
+The rest of the sample goes back to the if portion of the sample.
+I'd like to continue working on it.
+
+0:17:31.044,0:17:38.468
+But, of course, those who can do well in this step and mix will be able to
+Please keep trying!
+
+0:17:43.858,0:17:50.870
+So, let's go back to the GLSL on which this if statement is written
+
+0:17:52.830,0:17:55.715
+This one.
+It's like this.
+
+0:17:55.740,0:18:01.337
+The first thing to find out.
+We're only at the junction of x at the moment.
+
+0:18:01.361,0:18:06.850
+I'm going to add the y-coordinate junction point to this as well.
+
+0:18:08.160,0:18:10.269
+What we do.
+
+0:18:12.078,0:18:16.485
+The uniform variable vec2
+
+0:18:19.370,0:18:24.955
+I included a vec2 variable called uThreshold
+
+0:18:25.070,0:18:30.947
+I'd like to use just x here for now.
+This is how you do it.
+
+0:18:30.972,0:18:38.677
+I can make a branch of x, though.
+Since this is out here.
+
+0:18:40.700,0:18:45.406
+Press Load Uniform Names to get in.
+Well, I'm glad you're in.
+
+0:18:45.601,0:18:48.844
+We don't need this time, so turn it off.
+
+0:18:48.980,0:18:55.077
+0.50.
+In vec2, I'd use these first two.
+
+0:18:55.101,0:19:03.095
+If this x is in now as 0.5
+So you can change the numbers here and it works like this.
+
+0:19:05.580,0:19:06.793
+We're on the move.
+
+0:19:06.918,0:19:10.098
+I'll set it to 0.5 now for now.
+
+0:19:10.902,0:19:16.318
+If you do 0.5 for y as well
+We can create a split in the middle standard
+
+0:19:16.857,0:19:20.126
+I'd like to put them in one by one.
+
+0:19:20.515,0:19:23.687
+I'm going to write a branch here.
+
+0:19:23.712,0:19:30.837
+First, p.x is less than uThreshold.x
+That is, less than 0.5.
+
+0:19:31.220,0:19:39.374
+And now, if p.y is less than uThreshold.y and
+
+0:19:39.399,0:19:42.359
+I'll put these in.
+
+0:19:46.706,0:19:50.200
+Now.
+
+0:19:55.730,0:20:03.998
+else if
+If p.x is greater than uThreshold.x and
+
+0:20:04.091,0:20:08.445
+If p.x is less than uThreshold.y
+I'll put in a
+
+0:20:11.929,0:20:19.740
+And now, if x is small and
+
+0:20:23.032,0:20:26.820
+uThreshold.y is over here.
+
+0:20:29.280,0:20:38.423
+If x is less than 0.5 and uThreshold.x is less than x, and
+There is a case where y is greater than uThreshold.y
+
+0:20:39.090,0:20:43.076
+Now, there are three conditions.
+And the rest of it is just that...
+
+0:20:43.101,0:20:53.726
+When p.x is greater than uThreshold.x and
+When p.y is greater than uThreshold.y and
+
+0:20:53.751,0:20:57.517
+That's what goes into this ELSE.
+
+0:20:59.160,0:21:05.803
+I'm going to change this color a little bit from here.
+I was fine with rgba at first.
+
+0:21:05.890,0:21:12.986
+I don't care what it is, but rbga or whatever.
+
+0:21:13.011,0:21:15.974
+There's a little bit of a color change here, too.
+
+0:21:15.999,0:21:18.255
+One more.
+
+0:21:22.900,0:21:24.777
+Like gbra.
+
+0:21:24.870,0:21:26.933
+You're with us.
+
+0:21:32.917,0:21:34.917
+rbga
+
+0:21:38.621,0:21:41.395
+I think it's going to be a color-changing experience.
+
+0:21:41.551,0:21:44.576
+So there are four different patterns.
+
+0:21:47.022,0:21:56.070
+Of course, if you move the value here.
+It's going to be one of those things where the center changes.
+
+0:21:56.306,0:22:01.870
+I'd like to make this work a little bit more dynamically.
+Make it big once.
+
+0:22:06.170,0:22:07.991
+LFO
+
+0:22:09.400,0:22:11.730
+and Noise
+
+0:22:16.060,0:22:18.294
+Put a Hold in.
+
+0:22:19.295,0:22:24.266
+If you make this a Pulse
+
+0:22:24.559,0:22:27.913
+So it's now.
+Every second.
+
+0:22:27.938,0:22:35.534
+I'm going to get a random value that's in here.
+I've created a
+
+0:22:39.411,0:22:43.778
+This and Math.
+
+0:22:43.803,0:22:47.883
+Once before.
+We should name this value.
+
+0:22:48.071,0:22:52.289
+You name it.
+
+0:22:52.860,0:22:58.245
+threshold[X, Y]
+I've named it.
+
+0:22:58.385,0:23:01.420
+It's like this.
+
+0:23:06.518,0:23:13.325
+As a value of -1 to 1 comes in.
+
+0:23:16.160,0:23:23.115
+For example, let's put in 0.2 to 0.8.
+
+0:23:26.021,0:23:30.070
+Put a Null in here.
+
+0:23:30.095,0:23:35.910
+Put this value into uThreshold
+this means that
+
+0:23:37.129,0:23:38.363
+Like this.
+
+0:23:38.598,0:23:43.879
+This will change this place every second.
+You can create something called
+
+0:23:44.051,0:23:46.248
+As it is.
+I'm sorry, I'm sorry.
+
+0:23:46.359,0:23:54.351
+Put a Filter CHOP in here and then add
+I tried to make the animation smooth.
+
+0:24:01.789,0:24:04.531
+Let's make some space for you.
+Here.
+
+0:24:09.101,0:24:14.869
+It was here last time.
+I'm going to add the ability to zoom in and out.
+
+0:24:15.134,0:24:22.722
+I'm going to show you one little bit of code
+At this p.
+
+0:24:26.357,0:24:29.584
+I'll make sure to include a uRepeat
+
+0:24:30.420,0:24:37.260
+There are four here, so let's do it with vec4
+
+0:24:38.210,0:24:43.390
+The first one is uRepeat.x
+
+0:24:44.829,0:24:48.440
+This is the second one. uRepeat.y
+
+0:24:52.409,0:25:01.302
+The third one is uRepeat.z and the fourth one is called xyz.
+and the fourth one is called xyz
+
+0:25:01.560,0:25:06.617
+I'm getting another WARNING here.
+
+0:25:07.796,0:25:12.348
+Load Uniform
+When you do Names, this is automatically entered into the
+
+0:25:12.373,0:25:18.250
+Now the number that goes in here.
+I'd like to include it.
+
+0:25:18.450,0:25:21.593
+I made the same thing and now
+
+0:25:26.577,0:25:29.680
+repeat
+
+0:25:31.309,0:25:37.600
+I don't care what it is, but REPEAT[X, Y, Z, W]
+I put in a
+
+0:25:44.190,0:25:49.012
+Again, from -1.
+
+0:25:54.690,0:25:59.919
+Let's keep it at about 1 to 3 for now.
+I put a number on it.
+
+0:26:00.075,0:26:05.430
+I'd like to use this Null reference again.
+
+0:26:06.559,0:26:12.493
+Put a Merge CHOP in here once.
+I'll tie this together.
+
+0:26:13.048,0:26:20.206
+So now threshold xy and repeat xyz.
+It's a form of entry.
+
+0:26:22.206,0:26:26.927
+Like this repeatX.
+I'm going to take all of this here.
+
+0:26:26.952,0:26:34.876
+x y z w and
+
+0:26:34.940,0:26:36.298
+I can do this.
+
+0:26:39.678,0:26:45.615
+It's still not quite as smooth as I thought it would be.
+I'd like to put a filter in here as well.
+
+0:26:47.580,0:26:51.570
+in this way
+
+0:26:59.662,0:27:05.162
+I think it now looks like the first sample I showed you.
+
+0:27:06.381,0:27:13.594
+It's right here in the middle.
+Maybe you could make it a mouse action, for example.
+
+0:27:14.203,0:27:18.018
+various
+In short, if you come in with a CHOP, you can come in with anything you want.
+
+0:27:18.096,0:27:20.721
+I think it could be interesting to use.
+
+0:27:20.980,0:27:23.849
+This one is showing all the same images now.
+
+0:27:23.874,0:27:29.279
+Even if you put out slightly different images in pieces.
+I thought it would be interesting.
+
+0:27:33.981,0:27:36.520
+Let's display it.
+Like this.
+
+0:27:36.599,0:27:40.497
+It might be a little different from the first one, but
+It went like this.
+
+0:27:43.275,0:27:46.604
+Well, that's enough for now.
+
+0:27:49.929,0:27:57.056
+In addition to the YouTube tutorials on TDSW
+We offer live streaming workshops about two weekends a month.
+
+0:27:57.429,0:28:04.173
+If you are interested in TDSW through the tutorial
+Please come and visit us at our live streaming workshops!
+
+0:28:04.830,0:28:08.255
+Also, TDSW uses Patreon
+
+0:28:08.280,0:28:10.289
+Currently, the Tutorial Creation Support Plan
+
+0:28:10.314,0:28:12.375
+Workshop Video Plan
+
+0:28:12.421,0:28:17.437
+Workshop Video and Live Streaming Plan
+There are three plans available
+
+0:28:17.884,0:28:24.122
+It is more profitable than attending the workshop by itself.
+I hope you will consider it.
+
+0:28:24.370,0:28:28.880
+Please check out each link in the overview section!
+
+0:28:29.420,0:28:34.141
+Thank you for watching.
+Please subscribe to the channel if you'd like.
+
+0:28:34.211,0:28:35.211
+goodbye
+
+0:28:38.578,0:28:51.940
+[Music]
