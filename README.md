@@ -11,7 +11,9 @@ GLSL for dummies :)
 Playlist  
 https://www.youtube.com/playlist?list=PLH6Y6o7cLK9jZGSyiAkDxePeBouxU_-eT
 
-We are open for contribution for English or any languages you would like to. 
+We are open for any contribution to improve the English subtitles or any languages you could do. 
+
+[![](http://img.youtube.com/vi/0Bm8CjpdsAY/0.jpg)](http://www.youtube.com/watch?v=0Bm8CjpdsAY "")
 
 ## Contact
 Feel free to contact us if you have any questions.  
