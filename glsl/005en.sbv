@@ -1,0 +1,461 @@
+0:00:00.007,0:00:08.750
+[Music]
+
+0:00:10.010,0:00:14.306
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.696,0:00:19.932
+This will be the fifth episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:20.675,0:00:26.982
+In this case... using rgb shift.
+Like the one you're looking at right now.
+
+0:00:27.208,0:00:32.093
+We're going to make something where the colors shift to match the beat.
+
+0:00:32.312,0:00:37.978
+What we're going to do this time is we're going to use rgb to specify the colors separately.
+
+0:00:38.173,0:00:40.816
+Shifting the uv and shifting the color
+
+0:00:41.652,0:00:44.800
+Finally, this one is already out of the GLSL.
+
+0:00:44.849,0:00:50.121
+Use CHOP to generate parameters that change on a per-beat basis
+That's what we'll be doing.
+
+0:00:50.273,0:00:53.445
+So let's get to it.
+
+0:00:59.650,0:01:03.058
+Place the GLSL first
+
+0:01:07.246,0:01:10.170
+Open this in your editor
+
+0:01:13.053,0:01:16.762
+The first thing we do is.
+
+0:01:16.994,0:01:23.617
+I'll put the value of this uv in the variable p
+
+0:01:23.720,0:01:29.855
+We want to start with black as the default color, so we'll use
+I'm going to make some changes here.
+
+0:01:29.949,0:01:32.316
+VEC3
+
+0:01:33.035,0:01:35.410
+0
+
+0:01:39.060,0:01:41.568
+I think that makes it black.
+
+0:01:42.148,0:01:48.900
+sTD2DInputs[0].
+I'll use r, g and b three times for convenience
+
+0:01:48.925,0:01:53.223
+I'd like to put it in a variable once.
+
+0:01:56.925,0:02:02.000
+It's a texture, so we'll call it tex.
+
+0:02:02.372,0:02:06.200
+sampler2D
+
+0:02:08.767,0:02:10.688
+Like this.
+
+0:02:10.860,0:02:17.720
+I'm getting an error with this one.
+Once you use Movie File In
+
+0:02:20.396,0:02:23.669
+I can get you in here.
+No more errors.
+
+0:02:24.762,0:02:32.606
+No bananas this time.
+I'll use these flowers again.
+
+0:02:40.071,0:02:43.626
+The color of these flowers.
+
+0:02:43.930,0:02:47.604
+We're going to have to do r and g and b individually.
+
+0:02:47.698,0:02:52.319
+First of all, color.r's
+
+0:02:53.370,0:03:00.286
+texture(tex, p).r
+If
+
+0:03:03.050,0:03:07.090
+Only the color red will go in here.
+
+0:03:07.909,0:03:15.089
+Similarly, color.g
+Green.
+
+0:03:15.323,0:03:20.419
+If you do a g, you'll get a green color here.
+
+0:03:22.160,0:03:30.105
+Furthermore, if you do it with color.b, you can use
+This is where the blue comes in.
+
+0:03:31.180,0:03:36.580
+Now, what you see in Movie File In and
+The same one showed up here.
+
+0:03:37.110,0:03:43.706
+I'll try to comment out on this one.
+In this state, it's just the green.
+
+0:03:45.870,0:03:50.350
+In this state, you said only blue.
+It's like this.
+
+0:03:52.052,0:03:55.380
+We'll shift the uv from here.
+
+0:03:56.161,0:04:03.601
+Specifically, after the value of p
+Enter the value of vec2
+
+0:04:04.990,0:04:07.146
+First.
+
+0:04:07.171,0:04:17.101
++vec2(0.02, 0.02)
+If you add the number
+
+0:04:17.852,0:04:21.664
+You can see the red has shifted here.
+
+0:04:24.023,0:04:27.963
+Let's change the numbers for a moment.
+I'm off by a long shot.
+
+0:04:28.767,0:04:32.020
+The red one is off.
+
+0:04:36.128,0:04:39.982
+Now we're going to move the g's around.
+
+0:04:40.099,0:04:43.255
+This way, the g's are off.
+
+0:04:43.430,0:04:46.817
+I want to take it in the other direction.
+in this way
+
+0:04:47.750,0:04:51.995
+Now r and g and b break down.
+You'll see it displayed.
+
+0:04:53.940,0:04:57.980
+And while we're at it, let's move the b's around a bit.
+
+0:04:59.757,0:05:06.843
+Let's just say 0.04 or something.
+
+0:05:06.868,0:05:11.811
+Now we have a sentence state where the r, g and b are all off.
+
+0:05:11.836,0:05:17.976
+I mean, if you move it around like this.
+The edges are a little off, and they're blackened by the slight shift.
+
+0:05:18.081,0:05:26.471
+The Zero part of this Input Extend Mode UV is
+Yeah, like Repeat.
+
+0:05:26.495,0:05:34.590
+Let's just say Hold or Mirror.
+I don't care which one, but I'll change it.
+
+0:05:34.956,0:05:38.073
+The basic structure is now complete.
+
+0:05:38.098,0:05:44.747
+Now we just need to get the parameters to pass to GLSL.
+We'll try to generate it to the beat.
+
+0:05:49.363,0:05:54.708
+We don't need a little bit of code from here on out.
+Make this one big once.
+
+0:05:54.733,0:05:56.482
+Too big.
+
+0:05:58.771,0:06:04.507
+We'll start by creating a value for the x shift
+
+0:06:04.864,0:06:08.997
+Beat CHOP came in.
+
+0:06:09.489,0:06:15.317
+Ramp is showing up now.
+I'll show you the Beat here
+
+0:06:15.342,0:06:22.560
+This way you get four beats.
+You'll get values of 0, 1, 2 and 3.
+
+0:06:22.760,0:06:29.012
+You can add a Logic CHOP to this.
+
+0:06:41.594,0:06:46.375
+When the value changes.
+It's supposed to be like changing from 0 to 1.
+
+0:06:46.400,0:06:51.290
+Here's what this looks like on Trail
+
+0:06:51.772,0:06:57.389
+Every beat is a 0 is a 1.
+That's how it works.
+
+0:06:57.834,0:07:04.234
+Here's how to trigger this Beat.
+We want to generate random numbers, so we'll use
+
+0:07:04.352,0:07:08.430
+Add Noise CHOP here
+
+0:07:09.480,0:07:12.703
+Type is Random
+
+0:07:14.350,0:07:19.434
+Channel dx...
+
+0:07:19.459,0:07:26.110
+I want to output each rgb, so I'm going to use
+I put in something like dx[RGB]
+
+0:07:26.300,0:07:30.371
+Time Slice On
+It's like this.
+
+0:07:30.396,0:07:34.661
+A random value is created every frame.
+
+0:07:37.083,0:07:40.333
+Put a Hold in.
+
+0:07:40.771,0:07:45.820
+Firstly, Noise.
+The second thing you can do is to add Logi.
+
+0:07:46.140,0:07:51.628
+Each beat generates a random number
+That's what we're doing.
+
+0:07:59.200,0:08:04.241
+If you don't, you'll get another crack at it.
+The numbers have changed.
+
+0:08:04.491,0:08:08.147
+You can add a Filter CHOP to this and add a
+
+0:08:08.960,0:08:10.977
+Like this.
+
+0:08:11.169,0:08:14.903
+Reduce this Filter Width a bit
+
+0:08:14.928,0:08:24.772
+About 0.65.
+I'd like to try.
+
+0:08:24.797,0:08:27.612
+Now we see this Trail CHOP.
+
+0:08:27.637,0:08:34.057
+After moving towards 0.65 like this
+It's a breeze to come back.
+
+0:08:38.580,0:08:45.428
+Multiply this by Math CHOP and you have these two things
+
+0:08:45.452,0:08:51.476
+Combine CHOPs Multiply
+
+0:08:53.370,0:08:58.753
+This will give you a smooth value.
+It's now generated from random stuff.
+
+0:09:01.860,0:09:06.590
+Now add a Null to this.
+
+0:09:07.260,0:09:11.418
+Send this number to GLSL
+
+0:09:11.730,0:09:16.715
+Yes.
+I'll make it uDX or something.
+
+0:09:16.740,0:09:23.482
+And if you put these three values in
+thus
+
+0:09:23.507,0:09:29.939
+dxR, dxG and dxB
+And these three are in now.
+
+0:09:30.220,0:09:32.495
+rgb
+Like this.
+
+0:09:32.520,0:09:39.824
+If you use the value uDX in GLSL
+
+0:09:41.540,0:09:48.425
+A uniform float to use...
+Not a float.
+
+0:09:48.450,0:09:50.593
+It's called vec3.
+
+0:09:50.720,0:09:53.079
+It's called uDX.
+
+0:09:53.104,0:09:58.897
+We'll put uDX into each of these x's
+
+0:09:58.922,0:10:07.662
+uDX.r
+uDX.g and b and
+
+0:10:07.687,0:10:09.476
+Now you're in.
+
+0:10:11.240,0:10:16.934
+Now when this beat comes in.
+When the rgb shifts
+
+0:10:16.959,0:10:19.966
+I got that x-direction ready.
+
+0:10:21.649,0:10:24.518
+Let's look at it a little larger.
+It's like this.
+
+0:10:24.706,0:10:28.112
+This is the Beat CHOP.
+This is.
+
+0:10:28.189,0:10:35.683
+From the place below called Tempo.
+I can change the BPM.
+
+0:10:37.710,0:10:44.464
+There is one more way to do it, and that is to use the Dialogs' Beat
+Here's something called the Beat Panel.
+
+0:10:44.489,0:10:49.729
+We'll just sit here and listen to the music.
+By making the beat yourself.
+
+0:10:50.360,0:10:52.977
+Tempo is determined.
+You can set your own BPM.
+
+0:10:53.012,0:10:56.284
+There is a feature called
+I'll give it a shot.
+
+0:10:57.018,0:11:04.079
+You may not be able to hear this, folks.
+I'm playing music on the other monitor.
+
+0:11:24.790,0:11:32.450
+That's about it.
+The idea is that you can adjust the beat yourself a bit.
+
+0:11:32.774,0:11:39.869
+Basically, it's the same thing we do with this.
+I'm going to copy this part.
+
+0:11:43.887,0:11:47.563
+Copy me.
+
+0:11:47.778,0:11:56.249
+This is the channel we're going to use.
+We're going to make it look like we're going to make dy's stuff.
+
+0:11:57.936,0:12:05.350
+This is where the dy[RGB] came in, so
+Merge here.
+
+0:12:10.243,0:12:12.648
+This value can now be used
+
+0:12:12.737,0:12:17.665
+dxR and dxG, dxB
+
+0:12:17.690,0:12:21.713
+dyR dyG tyB
+It also contains the value of
+
+0:12:22.500,0:12:28.360
+I'm going to put this in here.
+
+0:12:38.544,0:12:47.933
+In dyG.
+dyB and
+
+0:12:47.958,0:12:51.110
+These are the values that came in.
+
+0:12:52.754,0:12:55.186
+Like this.
+
+0:12:56.350,0:13:05.282
+The value that went into this uDY
+It's like we're making a shift in the y direction here.
+
+0:13:10.032,0:13:11.844
+It's like this.
+
+0:13:11.869,0:13:17.458
+Now I think we've created the same one I showed you in the beginning.
+
+0:13:17.727,0:13:21.024
+That's it for this one.
+
+0:13:21.440,0:13:27.321
+In addition to the YouTube tutorials on TDSW
+We offer live streaming workshops about two weekends a month.
+
+0:13:27.500,0:13:32.149
+Tickets are available through Petix and Eventbrite!
+
+0:13:32.729,0:13:36.283
+Also, TDSW uses Patreon
+
+0:13:36.470,0:13:40.551
+There are currently three plans available
+
+0:13:40.730,0:13:46.126
+You can find these links in the video overview section of the video
+Check it out if you'd like.
+
+0:13:46.520,0:13:52.337
+Thank you for watching.
+If you like it, please subscribe to our channel!
+
+0:13:52.431,0:13:54.829
+goodbye
+
+0:13:55.720,0:14:09.110
+[Music]
