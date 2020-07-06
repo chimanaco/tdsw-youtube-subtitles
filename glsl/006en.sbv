@@ -1,0 +1,379 @@
+0:00:00.046,0:00:08.906
+[Music]
+
+0:00:10.230,0:00:14.562
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.587,0:00:21.108
+This will be the sixth episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:21.133,0:00:25.870
+This time with uv.
+public
+
+0:00:27.190,0:00:32.669
+It's more like a pixelated effect.
+We will create a Mosaic effect.
+
+0:00:33.372,0:00:38.060
+When you press the button, it changes to this.
+It's like this.
+
+0:00:39.050,0:00:45.610
+This time, we'll do it.
+First, use uv to change the resolution according to the amount of change.
+
+0:00:45.634,0:00:50.345
+Adjusting the Position of Getting Color When Changing Resolution
+
+0:00:50.570,0:00:58.085
+At the end of the day, though, this is something we'll have to adjust in CHOP.
+Create a parameter that changes with the amount of change by turning the button on or off.
+
+0:00:58.453,0:01:00.830
+We're going to do this.
+
+0:01:00.855,0:01:04.219
+So let's get to it.
+
+0:01:05.800,0:01:07.458
+It's good.
+
+0:01:07.583,0:01:11.622
+Place the GLSL TOP as usual
+
+0:01:16.200,0:01:23.327
+In this case, we'll use images.
+Or a banana, for that matter.
+
+0:01:23.679,0:01:28.650
+It's better to have color in all of them.
+I will use flowers.
+
+0:01:28.806,0:01:31.952
+I've got this hooked up.
+
+0:01:31.976,0:01:38.970
+Also.
+Display GLSL in VSCode
+
+0:01:45.072,0:01:50.780
+I want the color to be this texture color.
+It goes like this.
+
+0:01:51.130,0:01:53.934
+First thing's first.
+
+0:01:53.959,0:02:00.311
+vec2 p = vUV.st
+
+0:02:00.336,0:02:02.631
+Put uv into this first
+
+0:02:02.656,0:02:05.190
+Declare the amount of change.
+
+0:02:05.215,0:02:12.860
+Let it be float d
+Let's say it's 10.
+
+0:02:12.860,0:02:19.000
+I'd like to start by changing the resolution in the x direction.
+
+0:02:19.080,0:02:31.338
+p.x = floor(p.x)
+
+0:02:31.363,0:02:33.264
+And it goes like this.
+
+0:02:33.289,0:02:38.075
+It's called vUV.st here.
+I'll put a p.
+
+0:02:38.100,0:02:41.147
+It's like this.
+
+0:02:41.172,0:02:47.069
+Multiply this by the value of d
+Like this.
+
+0:02:49.296,0:02:55.682
+Here's what we're doing.
+It's probably easier to see it by the color of the uv.
+
+0:02:55.707,0:02:59.350
+I'm going to show you a little bit of that.
+
+0:02:59.350,0:03:04.658
+vec4 color vec4
+
+0:03:04.682,0:03:12.239
+This way, sir.
+0.0 with a p in.
+
+0:03:12.290,0:03:19.465
+Well, here's what it looks like.
+What does this mean?
+
+0:03:19.490,0:03:23.847
+You should get out the TOP To and look at the numbers.
+It might be easier to understand.
+
+0:03:23.872,0:03:26.560
+Like this.
+
+0:03:27.013,0:03:33.699
+There's a zero at the beginning of the 10-split section.
+And all the rest of it has one in it.
+
+0:03:33.724,0:03:35.595
+It's like this.
+
+0:03:35.620,0:03:36.622
+Like this.
+
+0:03:36.647,0:03:41.970
+There's no red color here because it's zero.
+that is to say
+
+0:03:43.780,0:03:47.400
+And then there's this one more.
+
+0:03:48.173,0:03:54.149
+I'm going to do this thing where I repeat it 10 times.
+It's like compressing it once and then stretching it out.
+
+0:03:54.174,0:03:58.628
+If I do this, the display shows 0 to 1 this time.
+
+0:03:58.653,0:04:06.280
+It's like what you see on CHOP To over here.
+It's pretty much like a staircase, isn't it?
+
+0:04:08.230,0:04:14.275
+Commenting this out.
+It's going to be smooth.
+
+0:04:14.300,0:04:18.410
+This is the process we're going through right now.
+Like this.
+
+0:04:18.410,0:04:24.029
+If we put this back into texture
+
+0:04:26.560,0:04:29.710
+Here's what happened.
+
+0:04:29.735,0:04:34.609
+Oh, I think I'd better go with "d" here.
+D.
+
+0:04:34.634,0:04:39.229
+Now we're going to add it in the y direction.
+
+0:04:42.849,0:04:49.849
+Like this.
+You can see how it's pixellated in this way.
+
+0:04:49.849,0:04:54.429
+Let's do this one more time.
+You can see it here.
+
+0:04:55.476,0:04:58.660
+It's like this.
+
+0:04:59.870,0:05:05.560
+These large blocks of pixels.
+You can see it's made.
+
+0:05:05.585,0:05:09.901
+The r's are in this kind of staircase shape.
+
+0:05:09.925,0:05:13.521
+If you look at this in Crop called Column.
+
+0:05:13.546,0:05:19.330
+And now the g's.
+You can see that it's a staircase.
+
+0:05:22.750,0:05:27.799
+This will bring the colors back to their original texture again.
+
+0:05:27.824,0:05:30.770
+It looks like this.
+
+0:05:30.795,0:05:39.622
+This one block is the original pixel, the
+It's the same as 1280x720 and it's now 16:9.
+
+0:05:39.672,0:05:47.143
+For example, if you want to make this a square.
+You may want to adjust the Aspect Ratio.
+
+0:05:48.161,0:05:54.099
+The floor is what we call the ground.
+It's called truncation.
+
+0:05:54.124,0:06:00.610
+If you round this up to the nearest "ceil," you can use
+It goes something like this.
+
+0:06:00.635,0:06:05.850
+I don't think it would affect my appearance that much.
+
+0:06:06.720,0:06:11.152
+I don't want to round up, I want to get the middle number.
+
+0:06:11.177,0:06:19.077
+Just once, right here.
+I'd like to take the value between floor and ceil
+
+0:06:26.548,0:06:32.080
+Divide it by two.
+
+0:06:42.195,0:06:47.689
+The y-direction also divides 2 and
+Let's do this.
+
+0:06:47.689,0:06:53.049
+Like this.
+This way, I hope it's a perfect fit.
+
+0:06:53.350,0:07:01.352
+Now we can change the numbers here a bit.
+So the mosaic changes in size.
+
+0:07:05.163,0:07:06.792
+Here's what it looks like.
+
+0:07:06.817,0:07:14.390
+Now we just need to add this part of the parameter to the
+I will try to give it to GLSL.
+
+0:07:14.415,0:07:21.355
+The use of the UNIFORM
+Maybe we should do a uAmount or something this time.
+
+0:07:21.380,0:07:28.639
+This is what it looks like when it's in.
+
+0:07:28.639,0:07:30.810
+I've already declared it.
+
+0:07:30.834,0:07:37.370
+Load UniformNames If you click here, you can use the
+I thought you were already in here.
+
+0:07:37.370,0:07:43.210
+0.5 is too small, so you can put in 50 or something like that.
+It comes out like this.
+
+0:07:47.028,0:07:53.280
+Now I'm going to give you this value.
+I'd like to be able to generate it with a button
+
+0:07:56.540,0:08:00.250
+First, place the Button
+Button
+
+0:08:01.460,0:08:03.729
+In.
+
+0:08:04.749,0:08:11.560
+null1
+I want to create an on and off state.
+
+0:08:11.560,0:08:18.226
+Here you go.
+I'm using this state as Toggle Down
+
+0:08:23.630,0:08:30.009
+And the rest is in the meantime.
+I'd like to put some numbers in.
+
+0:08:30.100,0:08:37.641
+First, add a Lag CHOP.
+We'll make sure the movement is smooth.
+
+0:08:38.130,0:08:45.829
+In this case, it's 0.5, 0.5.
+Whatever you want to call it, but I'm going to use a number like this
+
+0:08:47.425,0:08:55.331
+Add a Math CHOP here.
+Determine the Range
+
+0:08:57.340,0:09:05.334
+I'm sure you can adjust this place later on yourself, too.
+Let's say you get a number like 500 to 400.
+
+0:09:06.600,0:09:13.344
+The value of this Null.
+I'll put it in this uAmount.
+
+0:09:13.369,0:09:14.950
+Like this.
+
+0:09:14.950,0:09:20.250
+This way, here we are.
+You can see it's pixellated.
+
+0:09:24.040,0:09:27.449
+Let's look at it a little larger.
+
+0:09:29.683,0:09:36.839
+Enlarge this and get it out.
+Give me a button.
+
+0:09:41.260,0:09:43.980
+It's like this.
+
+0:09:51.160,0:09:57.934
+When this is animated.
+I think you can see the black stuff on the edges.
+
+0:09:57.958,0:10:02.466
+Maybe I should put "Mirror" here instead of "Zero".
+
+0:10:02.491,0:10:07.550
+I'll put the Mirror in it.
+If you do that.
+
+0:10:08.310,0:10:15.350
+I'm guessing that when you moved it around, you couldn't see the black areas here.
+
+0:10:15.350,0:10:21.450
+Now it responds to the button.
+We've got a mosaic effect.
+
+0:10:21.450,0:10:23.496
+That's it for this one.
+
+0:10:23.520,0:10:29.680
+About twice a month at TDSW.
+We're running live streaming workshops on the weekend.
+
+0:10:29.680,0:10:34.018
+Tickets are available through Petix and Eventbrite!
+
+0:10:34.043,0:10:38.870
+Also, TDSW uses Patreon
+There are currently three plans available
+
+0:10:38.870,0:10:44.306
+You can find these links in the video overview section of the video
+Check it out if you'd like.
+
+0:10:44.331,0:10:50.851
+So thank you for watching.
+If you like it, please subscribe to our channel!
+
+0:10:50.876,0:10:53.249
+goodbye
+
+0:10:53.274,0:11:04.602
+[Music]
+
+
