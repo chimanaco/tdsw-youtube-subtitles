@@ -1,0 +1,460 @@
+0:00:00.015,0:00:08.953
+[Music]
+
+0:00:09.890,0:00:13.939
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.010,0:00:20.064
+This will be the seventh episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:21.744,0:00:28.723
+This time, the one you're watching right now.
+I'm going to make this kind of kaleidoscope effect.
+
+0:00:28.820,0:00:32.861
+Let me first introduce you to something called ISF
+
+0:00:33.090,0:00:37.436
+Originally, it was part of a software feature called VDMX.
+
+0:00:37.670,0:00:42.295
+You can write effects based on GLSL
+this is called
+
+0:00:43.209,0:00:48.422
+What we're going to do this time.
+First of all, this introduction to the ISF
+
+0:00:48.447,0:00:53.108
+Next, select the kaleidoscope in the ISF sample and use
+
+0:00:53.132,0:00:55.801
+We'll make this work in TouchDesigner
+
+0:00:55.860,0:01:02.875
+Finally, I used these ISFs.
+I'd like to talk about how to study effects.
+
+0:01:03.055,0:01:05.266
+So let's get to it.
+
+0:01:05.500,0:01:10.354
+As I mentioned earlier, ISF is a part of VDMX.
+
+0:01:10.570,0:01:14.502
+VDMX is VJ software for Mac and
+
+0:01:14.527,0:01:20.244
+You can write your own Shader in ISF
+You can use it in VDMX
+
+0:01:20.360,0:01:26.432
+ISF has an editor for the Mac, too.
+There is also an editor that works in the browser
+
+0:01:26.850,0:01:29.487
+That's what this page is all about.
+
+0:01:29.885,0:01:32.640
+This is the top page.
+
+0:01:32.780,0:01:41.095
+This way, you can tweak the parameters in the browser and
+They can change the effects and support you.
+
+0:01:42.950,0:01:51.726
+You can change the image or use your own webcam
+I can even put in a video.
+
+0:01:55.720,0:02:01.753
+View a list of people with this username VIDVOX
+
+0:02:03.402,0:02:09.490
+These VIDVOX people.
+I mean, these are the people who make VDMX.
+
+0:02:09.538,0:02:15.585
+They are, um... these ISF files.
+I'm releasing it under the MIT license.
+
+0:02:15.610,0:02:19.971
+Select a file to be converted in TouchDesigner from among these
+
+0:02:20.040,0:02:26.480
+By the way, here's the GitHub page with the ISF files
+
+0:02:27.900,0:02:35.871
+Here's what's actually up in your browser right now
+The Shader file has been uploaded!
+
+0:02:35.920,0:02:39.840
+Come back to this page.
+
+0:02:39.865,0:02:47.600
+I will be using this Kaleidoscope.fs
+I'd like to use this Kaleidoscope.fs
+
+0:02:49.560,0:02:52.880
+I got this screen.
+
+0:02:53.120,0:03:00.489
+First of all... here on the right.
+There are parameters.
+
+0:03:06.010,0:03:09.861
+There's a code on the left side.
+It will be this kind of thing.
+
+0:03:09.886,0:03:15.840
+Fix the code.
+You can also update it in your browser
+
+0:03:16.010,0:03:22.221
+This kind of interactive environment in the browser is a great way to get the most out of
+Well, there are a few things.
+
+0:03:22.246,0:03:24.315
+This will be one of them.
+
+0:03:24.950,0:03:27.903
+Actually, the center point of this one isn't moving properly.
+
+0:03:27.928,0:03:31.973
+We'll get to this later.
+We'll fix it in TouchDesigner.
+
+0:03:32.280,0:03:37.592
+Now I'd like to take this code to TouchDesigner
+
+0:03:37.918,0:03:43.188
+Open the code.
+copy
+
+0:03:43.280,0:03:50.530
+If you copy it.
+Place GLSL Top in TouchDesigner
+
+0:03:52.625,0:04:01.195
+Input images from Movie File In
+
+0:04:01.920,0:04:08.640
+Not flowers this time, but a drum.
+I'll take it.
+
+0:04:08.665,0:04:12.015
+I'll get you a link.
+
+0:04:12.040,0:04:17.173
+Open the Shader in the editor again
+
+0:04:17.198,0:04:20.120
+Here's what happened.
+
+0:04:20.600,0:04:25.219
+I'm going to copy this first.
+
+0:04:27.696,0:04:35.479
+At the top are the properties
+This is the one used by the ISF only
+
+0:04:35.503,0:04:40.840
+This doesn't particularly affect me because it's been commented out.
+
+0:04:41.043,0:04:45.320
+There's a constant here.
+
+0:04:48.860,0:04:53.995
+Since there are two main functions, the
+I'm going to need this copy.
+
+0:04:57.600,0:04:59.665
+We'll put them inside.
+
+0:05:07.420,0:05:11.875
+If you do this, you'll get a lot of errors here.
+
+0:05:11.900,0:05:15.360
+We're going to have to crush these one by one.
+
+0:05:18.360,0:05:25.169
+First.
+I don't want this.
+
+0:05:25.809,0:05:32.880
+The output ends in gl_FragColor.
+
+0:05:33.083,0:05:37.560
+Change the way you do things in TouchDesigner
+
+0:05:41.230,0:05:44.293
+Let's start with this.
+
+0:05:44.472,0:05:52.693
+First of all, I'm going to take all of these properties up here.
+We will declare it as a uniform variable
+
+0:05:54.950,0:05:58.240
+inputImage
+
+0:05:58.960,0:06:05.580
+Let's just skip this one for a second.
+sides, which are of type float, and
+
+0:06:06.545,0:06:13.724
+Let's call this the SIDES
+
+0:06:13.840,0:06:19.035
+If you do this, the error with the sides in it will disappear
+
+0:06:19.098,0:06:27.444
+Next, we'll put in an angle.
+The error is also disappearing again.
+
+0:06:30.726,0:06:34.850
+slidex
+
+0:06:38.350,0:06:42.150
+It's also called slidey.
+
+0:06:44.187,0:06:51.703
+It's called center.
+There's something called point2d that I'm not familiar with.
+
+0:06:53.889,0:06:58.319
+This can be handled by vec2
+
+0:06:59.516,0:07:05.401
+The number of errors has decreased significantly.
+There are a lot of variables that are a little unfamiliar to me.
+
+0:07:05.426,0:07:10.630
+I'd like to check this out on the ISF website
+
+0:07:11.303,0:07:18.352
+First of all, it's called RENDERSIZE.
+I'd like to look into this.
+
+0:07:18.657,0:07:27.860
+Here's the page with the ISF specs
+If you search for RENDERSIZE here
+
+0:07:27.885,0:07:35.864
+The vec2 RENDERSIZE is
+Since it says it's the size of the renderings.
+
+0:07:36.457,0:07:44.217
+I'm going to put in 1280x720 later.
+First, let me make one declaration here.
+
+0:07:52.511,0:07:55.979
+Is it easier to see it this way?
+
+0:07:58.292,0:08:08.321
+I searched for isf_FragNormCoord and found
+This one is also automatically declared by the
+
+0:08:09.689,0:08:16.069
+It's a number between [0, 0] and [1, 1].
+That's what it says.
+
+0:08:16.090,0:08:18.027
+This is.
+
+0:08:18.067,0:08:27.225
+In TouchDesigner's Fragment Shader, I used to use
+It can be replaced by vUV.st
+
+0:08:27.655,0:08:37.010
+So I'm going to replace the value in here with vUV.st
+
+0:08:39.700,0:08:42.330
+Like this.
+
+0:08:42.409,0:08:45.788
+I think that reduces the errors again.
+
+0:08:45.936,0:08:49.381
+I'm going to search for IMG_NORM_PIXEL this time.
+
+0:08:49.428,0:08:57.420
+Basically, it's something that takes pixels when you use an image or something.
+since it is the case that
+
+0:08:57.680,0:09:04.034
+It is used as an alternative to texture2D or texture2DRect
+
+0:09:04.110,0:09:09.397
+This texture2D or something like that is called texture in TouchDesigner. Yes.
+
+0:09:09.422,0:09:14.060
+This one. It's a viable substitute.
+
+0:09:20.700,0:09:30.600
+Furthermore, this inputImage is a
+It's about this incoming image.
+
+0:09:30.970,0:09:35.652
+In TouchDesigner.
+This sTD2DInputs[0] can be replaced by
+
+0:09:35.677,0:09:45.669
+IMG_NORM_PIXEL as texture
+Replace the inputImage with this sTD2DInputs[0]
+
+0:09:49.021,0:09:52.138
+It came out this way.
+Then the error is gone.
+
+0:09:54.940,0:10:06.435
+If there are no errors in this state, the declaration of this uniform will be
+You can load in this Load Uniform Names
+
+0:10:06.460,0:10:09.462
+I think each variable was automatically entered.
+
+0:10:09.532,0:10:15.079
+First of all, these values of
+I'm going to put in a little bit of the default value.
+
+0:10:15.160,0:10:19.990
+Default 6 for sides.
+
+0:10:23.203,0:10:27.300
+Angle defaults to 0.
+
+0:10:28.551,0:10:33.655
+1280x720 for RENDERSIZE
+
+0:10:33.680,0:10:39.741
+That's the same pixels as this image.
+
+0:10:41.233,0:10:47.609
+Next, slidey and slidex default to 0
+
+0:10:48.312,0:10:54.891
+This one has a zero and a zero.
+
+0:10:55.377,0:10:59.231
+It's the center position.
+
+0:11:00.068,0:11:08.029
+I'm trying to put this in the middle.
+Enter something like 640x360.
+
+0:11:08.054,0:11:13.681
+Then I think we'd have a screen like this now.
+
+0:11:15.470,0:11:18.972
+I think this already looks pretty good.
+
+0:11:18.997,0:11:25.554
+The angle.
+I'm going to use CHOP to move it around.
+
+0:11:26.452,0:11:30.331
+Make the screen wide once.
+
+0:11:35.282,0:11:40.815
+First, put in the LFO CHOP.
+
+0:11:46.634,0:11:49.501
+Add a Null.
+
+0:11:52.485,0:11:56.104
+Put this at the angle
+
+0:11:57.839,0:12:02.497
+It's ridiculously fast.
+I'm going to try to slow this down.
+
+0:12:03.661,0:12:10.718
+Frequency is set to 0.1
+
+0:12:12.304,0:12:14.923
+It's like this.
+
+0:12:14.948,0:12:23.114
+It still feels a little fast.
+Let's say 0.02.
+
+0:12:24.333,0:12:30.657
+It's like this.
+This is what it looked like.
+
+0:12:31.016,0:12:38.065
+Now it works like the first one I showed you.
+I think it's a kaleidoscope effect.
+
+0:12:43.453,0:12:51.268
+I'm not going to explain this code in a bit this time.
+You can play with these parameters and color correct them.
+
+0:12:52.572,0:12:57.994
+And you know what?
+Please take a look at the other effects if you're interested.
+
+0:12:58.236,0:13:05.394
+License-wise, if it was made by this VIDVOX.
+I don't think there's a problem with that.
+
+0:13:05.804,0:13:11.944
+You know, I've seen some of his other work, but if you look at it.
+I'm sure you'll have many ideas.
+
+0:13:12.366,0:13:16.884
+It's not just the browser version.
+This desktop version is also available
+
+0:13:16.909,0:13:23.770
+I thought it was just the Mac version, but it looks like there's a Windows beta out as well.
+
+0:13:23.795,0:13:26.930
+Try it out if you're interested.
+
+0:13:26.955,0:13:30.795
+This ISF page.
+
+0:13:30.820,0:13:39.955
+Open each ISF and if there are any variables you haven't seen before, you can use
+Take a look at the specifications page I mentioned earlier.
+
+0:13:40.650,0:13:45.181
+Just the part about using Buffer.
+It might be a bit of a pain in the ass.
+
+0:13:45.206,0:13:51.150
+The rest of it isn't that hard.
+I think it would be an easy conversion.
+
+0:13:51.175,0:13:56.044
+We will talk about Buffer in TouchDesigner soon!
+
+0:13:56.069,0:13:58.149
+That's it for this one.
+
+0:13:58.174,0:14:04.098
+About twice a month at TDSW.
+We're running live streaming workshops on the weekend.
+
+0:14:04.348,0:14:09.272
+Tickets are available through Petix and Eventbrite!
+
+0:14:09.327,0:14:14.928
+We also use Patreon
+There are currently three plans available
+
+0:14:14.953,0:14:20.318
+You can find these links in the video overview section of the video
+Check it out if you'd like.
+
+0:14:21.170,0:14:27.842
+So thank you for watching.
+If you like it, please subscribe to our channel!
+
+0:14:27.867,0:14:30.672
+goodbye
+
+0:14:37.774,0:14:50.954
+[Music]
