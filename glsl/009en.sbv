@@ -1,0 +1,343 @@
+0:00:00.054,0:00:08.757
+[Music]
+
+0:00:09.470,0:00:14.253
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.278,0:00:20.239
+This will be the nineth episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:20.264,0:00:27.561
+In this case, as you're seeing right now.
+We're going to take the circles we made last time and tie them like this
+
+0:00:28.017,0:00:35.556
+This one... isn't exactly the same.
+It has a similar appearance to TileTOP in TouchDesigner
+
+0:00:35.581,0:00:39.470
+What we're going to do is, we're going to do some tiling first.
+
+0:00:39.470,0:00:43.196
+Then create a function to make it easier to use
+
+0:00:43.221,0:00:48.276
+To make it even easier to use.
+Create a separate file and use a function called include
+
+0:00:48.301,0:00:49.721
+That's what we'll be doing.
+
+0:00:49.746,0:00:52.155
+So let's get to it.
+
+0:00:52.180,0:00:57.241
+Yes, I'll use the circle I made last time as a base.
+
+0:00:57.266,0:01:02.110
+The resolution is a breeze, 1280x720.
+
+0:01:03.019,0:01:09.302
+It's coded like this.
+The function we'll be using is called fract
+
+0:01:09.327,0:01:14.155
+This is.
+It's called returning a decimal fraction.
+
+0:01:14.179,0:01:19.580
+Put this under color.
+
+0:01:23.520,0:01:28.800
+fract(p * 2)
+And I'll try.
+
+0:01:28.800,0:01:34.302
+You see, this is what happens when you do this.
+I think you can see that it's been repeated a lot.
+
+0:01:34.327,0:01:41.160
+Here's what it's doing.
+Let's take a look at it with a little uv.
+
+0:01:42.688,0:01:50.620
+It'll be like this, every single one of these.
+0 to 1, 0 to 1, 0 to 1, 0 to 1.
+
+0:01:52.150,0:01:55.320
+Let's take a look at it at TOP To
+
+0:01:56.520,0:02:02.428
+So, here's how it's going to look.
+It's 0 to 1, 0 to 1, 0 to 1, 0 to 1 all over again.
+
+0:02:02.453,0:02:06.578
+Make this uv invisible once.
+
+0:02:06.603,0:02:14.805
+As it is, the center point is in the lower left corner.
+I'm changing the center point.
+
+0:02:14.830,0:02:22.959
+If you put 0.5 in the center where the (0, 0) is now in the center.
+This is how it came to be.
+
+0:02:27.300,0:02:30.170
+It's like this.
+
+0:02:33.360,0:02:39.250
+I'm a little bit nervous about this now.
+Let's change the size, shall we?
+
+0:02:39.250,0:02:46.150
+It's like this. You can take as many as you want.
+You can make it any size you want.
+
+0:02:46.275,0:02:53.920
+Picture-wise, there's no more change from here to this time.
+I'm going to make this tiling and circle writing a function
+
+0:02:53.920,0:03:01.280
+By doing this, you can also isolate the functions of
+It also clears the cord and makes it easier to reuse.
+
+0:03:01.280,0:03:05.894
+Functions and functions and methods.
+Well, that's what they call it.
+
+0:03:05.919,0:03:12.010
+A common programming language has the ability to use the
+It's not unique to GLSL.
+
+0:03:12.010,0:03:14.278
+Let's do something about it.
+
+0:03:14.302,0:03:19.200
+Goodbye, sir.
+First, let's turn the tiling function into a function
+
+0:03:19.200,0:03:26.835
+This is where you're doing the tiling.
+p = fract(p * 2) Since this is
+
+0:03:27.640,0:03:32.897
+Copy this fract(p * 2) to
+
+0:03:32.921,0:03:36.186
+I'm going to write a function here
+
+0:03:36.211,0:03:43.940
+Vec2 tilting... I don't care what you call it.
+I've named him Tyring.
+
+0:03:43.965,0:03:53.420
+Arguments specify the size of this p-value and the size of the float as n
+
+0:03:53.445,0:03:55.518
+It's like this.
+
+0:03:55.543,0:03:59.961
+Here's the number that comes back.
+
+0:03:59.985,0:04:07.625
+vec2(fract(p * 2));
+
+0:04:07.740,0:04:16.161
+Replace this part of 2 with n
+This function should be used
+
+0:04:16.186,0:04:23.850
+tiling(p, 2) You should now have the same thing
+Let's try and change the numbers, shall we?
+
+0:04:23.875,0:04:28.766
+Like this, say, four or five.
+It goes like this.
+
+0:04:28.791,0:04:30.719
+Let's leave it at 2.
+
+0:04:33.807,0:04:38.309
+Now we have one function for tiling
+
+0:04:38.333,0:04:45.830
+And now I'm going to take this circular code
+I'd like to turn it into a function.
+
+0:04:45.830,0:04:48.940
+Copy me.
+
+0:04:51.752,0:04:56.290
+The variable returned here will be a float
+
+0:04:58.255,0:05:05.692
+I named the function drawCircle
+I'll take whatever you want here as well, or just Circle.
+
+0:05:09.261,0:05:13.480
+The position and size of the uv comes in.
+
+0:05:22.120,0:05:28.536
+I'm not sure if the error here is due to this center.
+I'll turn it off.
+
+0:05:28.561,0:05:37.353
+This is a good way to do it, and where it's at this 2, you can put in the size
+It's like this.
+
+0:05:37.377,0:05:47.740
+Using drawCircle
+d = drawCircle(p - center);
+
+0:05:54.776,0:05:58.910
+There's an error somewhere.
+
+0:05:59.044,0:06:04.599
+Oh, yes.
+I need to be at size.
+
+0:06:04.624,0:06:07.539
+Like this.
+
+0:06:07.740,0:06:13.759
+It goes something like this.
+He said that changing the size of this place would change it.
+
+0:06:14.062,0:06:19.660
+It came out this way.
+We're going to get rid of this junk code.
+
+0:06:20.529,0:06:27.913
+Now, after this smoothstep, this 0.95 or 1.
+It's a fixed number.
+
+0:06:27.937,0:06:35.259
+If you want to adjust this as well, you can put this argument in
+I think it would be a good idea to try to specify
+
+0:06:36.486,0:06:40.426
+Basically, this is fine, but there's one thing to keep in mind.
+
+0:06:40.451,0:06:47.400
+These functions are, in fact, more like
+There is always a need to come up.
+
+0:06:47.400,0:06:54.306
+than where this is executed in other programming languages.
+Sometimes it doesn't matter if it's downstairs.
+
+0:06:55.409,0:07:00.228
+This is how you need to write in GLSL
+
+0:07:00.252,0:07:07.910
+Take this with you for a test drive.
+It must be an error, right here.
+
+0:07:08.207,0:07:11.614
+When you put it back in, the error disappears, just like that.
+
+0:07:11.638,0:07:16.510
+There is one more thing I'd like to show you.
+
+0:07:16.510,0:07:24.004
+It's a GLSL feature.
+It might be written a little differently than other software
+
+0:07:24.029,0:07:28.695
+We'll do this in terms of how to use it in TouchDesigner.
+
+0:07:28.720,0:07:35.480
+First, we create a new Text DAT
+Text
+
+0:07:35.590,0:07:41.527
+And here's what I'm going to do, I'm going to describe the detachment feature
+
+0:07:41.552,0:07:49.109
+Here it is.
+Move the tiling and drawCircle to
+
+0:07:55.023,0:08:02.043
+I'll take your name, yes.
+I'll put on a Pixel2D or something.
+
+0:08:02.067,0:08:09.585
+It's kind of like having a function that does a lot of things in 2D.
+I imagine they're all in here, so I named them.
+
+0:08:11.470,0:08:16.503
+This text DAT, you see.
+You can also load external files.
+
+0:08:16.527,0:08:21.631
+Save it as an external file.
+You could also do it by loading it here.
+
+0:08:21.656,0:08:27.360
+Now I'm writing in this Text DAT as a sticky note.
+
+0:08:29.550,0:08:34.870
+What we do.
+
+0:08:34.870,0:08:42.539
+#include 
+DAT name in
+
+0:08:43.518,0:08:47.964
+Here's what it looks like with Pixel2D
+
+0:08:47.989,0:08:54.013
+If you do this, this Pixel2D will be loaded and
+You'll see it's back to normal.
+
+0:08:54.037,0:08:56.340
+Let's comment out, shall we?
+
+0:08:56.340,0:09:03.620
+Well, I'm getting an error.
+Because we don't have this tilting and drawCircle.
+
+0:09:03.620,0:09:09.980
+He said it would be fixed if we could get this place to load properly.
+It's like this.
+
+0:09:09.980,0:09:13.567
+Let's resize this place and adjust it.
+
+0:09:13.592,0:09:17.950
+Like this.
+Maybe 2.5.
+
+0:09:19.089,0:09:25.888
+Now you can do the tiling of the circle.
+You can now use it as a function
+
+0:09:25.913,0:09:28.569
+That's all for this time.
+
+0:09:28.569,0:09:34.040
+About twice a month at TDSW.
+We're running live streaming workshops on the weekend.
+
+0:09:34.065,0:09:38.540
+Tickets are available through Petix and Eventbrite!
+
+0:09:38.540,0:09:44.266
+またはPatreonも利用しています
+現在こちらの3つのプランがあります
+
+0:09:44.291,0:09:50.970
+これらのリンクは動画の概要欄にありますので
+よかったらチェックしてみてください
+
+0:09:50.970,0:09:57.880
+それではご視聴ありがとうございました
+気に入っていただけたらグッドボタンとチャンネル登録よろしくお願いいたします
+
+0:09:57.880,0:09:58.966
+ではまた
+
+0:09:59.857,0:10:13.140
+[音楽]
