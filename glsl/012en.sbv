@@ -1,0 +1,697 @@
+0:00:00.031,0:00:08.890
+[Music]
+
+0:00:10.085,0:00:14.021
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.046,0:00:20.882
+This will be the 12th episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:22.470,0:00:26.863
+In this case, the Fragment Shader
+It's called Useful Sites & Tools.
+
+0:00:26.887,0:00:31.280
+A site that may be useful for your work or study.
+I'd like to introduce you to
+
+0:00:31.280,0:00:37.350
+All the links are in the overview section.
+If you like what you see, check it out!
+
+0:00:37.350,0:00:45.584
+The first one is called Write a GLSL TOP
+This is a page from Derivative, the company that makes TouchDesigner.
+
+0:00:45.609,0:00:50.765
+If you're using TouchDesigner.
+I think we're going to see this place a lot.
+
+0:00:51.038,0:00:58.183
+It's just like the title says, it's the way GLSL TOP is written and
+It contains information on the built-in functions and so on.
+
+0:00:58.208,0:01:04.567
+For example, if there is a function with a TD and you are not familiar with it, you can use
+It's possible that you can see it here
+
+0:01:04.592,0:01:16.140
+For example, SimplexNoise's
+Some functions TD already has built-in, so you can use
+
+0:01:16.165,0:01:21.253
+I was wondering what kind of functions are available.
+I think it's worth a look.
+
+0:01:21.278,0:01:26.230
+Converting from rgb to hsv
+And so on.
+
+0:01:26.230,0:01:33.860
+The next one is called "Introduction to Visual and Audio Processing
+This is the material for Ryo Higa's lecture
+
+0:01:33.860,0:01:39.190
+This one is more of a GLSL.
+It's an explanation of TouchDesigner itself.
+
+0:01:39.215,0:01:43.797
+It's very well put together.
+I think you'll learn quite a bit.
+
+0:01:43.821,0:01:50.846
+I used to do some workshops privately.
+I found it quite helpful.
+
+0:01:50.871,0:01:53.331
+Please check it out!
+
+0:01:54.510,0:02:00.980
+Next up, this is the OpenGL
+It's what's called a cheat sheet.
+
+0:02:00.980,0:02:09.115
+If there's a function here that I don't understand that GLSL or something like that.
+You can search by that name to find out how to use it and more!
+
+0:02:09.140,0:02:18.632
+For example, do a search for fract or something like that.
+It gets pretty small, so if you zoom in on it
+
+0:02:18.657,0:02:22.760
+It's around here, like.
+It's like this.
+
+0:02:22.760,0:02:29.959
+The next one is docs.GL, which is also here.
+It's something that can be used in the same way.
+
+0:02:29.959,0:02:35.480
+For example, you could do the same search for fract.
+
+0:02:36.890,0:02:43.242
+It's going to come out how to use it.
+Which one is easier to use than that cheat sheet I mentioned earlier?
+
+0:02:43.267,0:02:48.280
+I think you can use whichever one you like.
+
+0:02:48.390,0:02:53.840
+Next.
+It's called the OpenGL4 Shading Language Cookbook
+
+0:02:53.840,0:02:59.430
+I probably read this one or two years ago.
+I think it's an edition.
+
+0:02:59.430,0:03:04.221
+It's also available in Japanese.
+I think the edition may be a little outdated.
+
+0:03:04.246,0:03:11.476
+Then there's the next one, which I've mentioned in the video.
+It's called The Book of Shaders.
+
+0:03:11.501,0:03:18.259
+It's very well explained.
+It's a great learning experience because it comes with an editor that you can run on the fly.
+
+0:03:18.284,0:03:21.730
+So let's take a look at it.
+
+0:03:25.220,0:03:27.604
+He explained it in detail.
+
+0:03:27.628,0:03:35.948
+And an editor that actually reflects the code on the fly.
+It's all over the place.
+
+0:03:35.972,0:03:39.340
+I think you'll learn a lot.
+
+0:03:39.340,0:03:46.030
+Once you've mastered everything here.
+I think the range of expression will expand considerably.
+
+0:03:46.030,0:03:49.260
+Japanese version is also available
+
+0:03:49.569,0:03:55.316
+It's translated so well in Japanese that it looks amazing.
+Check it out.
+
+0:03:55.340,0:03:58.120
+The next one is called KodeLife.
+
+0:03:58.120,0:04:01.501
+This is the GLSL desktop editor.
+
+0:04:01.525,0:04:06.319
+I think it could be used for live coding and other such applications.
+
+0:04:06.319,0:04:11.319
+You can download it from this page
+
+0:04:13.126,0:04:18.970
+There are some videos on how to use it, so you might want to check it out.
+
+0:04:20.079,0:04:26.526
+For this KodeLife.
+Mr. Keijiro Takahashi has given many samples.
+
+0:04:26.551,0:04:31.469
+I think this area would be very helpful as well.
+
+0:04:39.735,0:04:48.876
+For example
+If you copy and paste this code into
+
+0:04:48.901,0:04:52.930
+It's supposed to work like this.
+
+0:04:53.708,0:05:00.671
+I think some of the code needs a bit of a fix to get it working.
+I can see the behavior like this.
+
+0:05:00.696,0:05:04.072
+I think you'll learn a lot.
+
+0:05:04.096,0:05:05.933
+Then the ISF.
+
+0:05:05.958,0:05:10.677
+I have previously introduced a study method using the ISF.
+
+0:05:10.702,0:05:15.927
+You can create effects for a VJ software called VDMX
+Shader editor.
+
+0:05:15.952,0:05:21.642
+I have samples of various effects.
+I think this would be very helpful too.
+
+0:05:21.667,0:05:22.845
+For example
+
+0:05:29.305,0:05:33.845
+There's all kinds of stuff in here.
+I have a sample of the effects.
+
+0:05:35.700,0:05:43.220
+This one has this controller on it.
+You can actually move it around.
+
+0:05:43.319,0:05:49.647
+On the left side, there's a cord that says.
+It's supposed to be a way to see what's going on.
+
+0:05:50.420,0:05:56.477
+This is a bit of an aside, but I made this one a long time ago.
+It's what we call a serial drama.
+
+0:05:56.502,0:05:59.547
+There are parameters.
+
+0:05:59.572,0:06:06.139
+We're going to increase this place.
+It's like having more and more Doraemon in your life
+
+0:06:06.660,0:06:10.620
+Sometimes it's the opposite with Mirror.
+
+0:06:10.620,0:06:14.910
+It's got a lot of effects.
+
+0:06:15.600,0:06:17.336
+It's like this.
+
+0:06:17.360,0:06:27.830
+I thought it was long gone with the change of domain.
+I had some left over, so I thought I'd introduce you to them.
+
+0:06:29.169,0:06:34.349
+I have the code here.
+Take a look if you're interested.
+
+0:06:34.677,0:06:41.880
+Continue to tweet and tweet the hashtag GLSL on Twitter.
+I'm sure some of you may have seen it.
+
+0:06:41.880,0:06:45.965
+The idea is to write a GLSL at a length that fits in a tweet
+
+0:06:45.989,0:06:51.099
+A lot of them are of a high standard.
+Some of them have sounds attached to them.
+
+0:06:51.099,0:06:58.589
+Maybe it's not quite for beginners.
+I think you'll learn a lot from watching it.
+
+0:07:02.580,0:07:07.024
+This one, sir.
+I'm an editor for that tweet GLSL.
+
+0:07:07.048,0:07:12.197
+As it's reacting now with the mouse.
+This editor also allows for interactive editing and
+
+0:07:12.221,0:07:18.240
+You can convert to video from here or
+You can also post to Twitter
+
+0:07:18.240,0:07:28.289
+Then there's this WebGL headquarters.
+This is the site of h_doxas, who created the tweet GLSL I mentioned earlier.
+
+0:07:28.289,0:07:33.610
+Getting Started with GLSL Creative Coding with twigl.app
+In a series called
+
+0:07:33.610,0:07:41.104
+He explains GLSL coding in a pretty straightforward manner, so I'm not going to get into the
+I think it would be very helpful.
+
+0:07:41.729,0:07:48.310
+I've been working on this video as well.
+There are quite a few things I've been referring to.
+
+0:07:48.310,0:07:51.540
+I think you'll learn a great deal.
+
+0:07:51.849,0:07:54.861
+Next, here's a site called ShaderToy.
+
+0:07:54.885,0:08:00.390
+There's a lot of work up there that's at a ridiculous level.
+It's a very nice site.
+
+0:08:00.757,0:08:04.375
+Of course, you can also submit your work here
+
+0:08:04.400,0:08:06.236
+For example, if you click
+
+0:08:09.126,0:08:11.853
+There's a player over here.
+It's supposed to have an editor over here.
+
+0:08:12.911,0:08:16.886
+I've been looking at TouchDesigner related GLSL questions.
+
+0:08:16.911,0:08:22.490
+How to convert this ShaderToy to TouchDesigner?
+I get a lot of questions like.
+
+0:08:22.490,0:08:28.242
+It's kind of too advanced.
+There's an awful lot of potential for me to just copy and paste.
+
+0:00:00.031,0:00:08.890
+[Music]
+
+0:00:10.085,0:00:14.021
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:14.046,0:00:20.882
+This will be the 12th edition of GLSL in TouchDesigner
+please help me
+
+0:00:22.470,0:00:26.863
+In this case, the Fragment Shader
+It's called Useful Sites & Tools.
+
+0:00:26.887,0:00:31.280
+A site that may be useful for your work or study.
+I'd like to introduce you to
+
+0:00:31.280,0:00:37.350
+All the links are in the overview section.
+If you like what you see, check it out!
+
+0:00:37.350,0:00:45.584
+The first one is called Write a GLSL TOP
+This is a page from Derivative, the company that makes TouchDesigner.
+
+0:00:45.609,0:00:50.765
+If you're using TouchDesigner.
+I think we're going to see this place a lot.
+
+0:00:51.038,0:00:58.183
+It's just like the title says, it's the way GLSL TOP is written and
+It contains information on the built-in functions and so on.
+
+0:00:58.208,0:01:04.567
+For example, if there is a function with a TD and you are not familiar with it, you can use
+It's possible that you can see it here
+
+0:01:04.592,0:01:16.140
+For example, SimplexNoise's
+Some functions TD already has built-in, so you can use
+
+0:01:16.165,0:01:21.253
+I was wondering what kind of functions are available.
+I think it's worth a look.
+
+0:01:21.278,0:01:26.230
+Converting from rgb to hsv
+And so on.
+
+0:01:26.230,0:01:33.860
+The next one is called "Introduction to Visual and Audio Processing
+This is the material for Ryo Higa's lecture
+
+0:01:33.860,0:01:39.190
+This one is more of a GLSL.
+It's an explanation of TouchDesigner itself.
+
+0:01:39.215,0:01:43.797
+It's very well put together.
+I think you'll learn quite a bit.
+
+0:01:43.821,0:01:50.846
+I used to do some workshops privately.
+I found it quite helpful.
+
+0:01:50.871,0:01:53.331
+Please check it out!
+
+0:01:54.510,0:02:00.980
+Next up, this is the OpenGL
+It's what's called a cheat sheet.
+
+0:02:00.980,0:02:09.115
+If there's a function here that I don't understand that GLSL or something like that.
+You can search by that name to find out how to use it and more!
+
+0:02:09.140,0:02:18.632
+For example, do a search for fract or something like that.
+It gets pretty small, so if you zoom in on it
+
+0:02:18.657,0:02:22.760
+It's around here, like.
+It's like this.
+
+0:02:22.760,0:02:29.959
+The next one is docs.GL, which is also here.
+It's something that can be used in the same way.
+
+0:02:29.959,0:02:35.480
+For example, you could do the same search for fract.
+
+0:02:36.890,0:02:43.242
+It's going to come out how to use it.
+Which one is easier to use than that cheat sheet I mentioned earlier?
+
+0:02:43.267,0:02:48.280
+I think you can use whichever one you like.
+
+0:02:48.390,0:02:53.840
+Next.
+It's called the OpenGL4 Shading Language Cookbook
+
+0:02:53.840,0:02:59.430
+I probably read this one or two years ago.
+I think it's an edition.
+
+0:02:59.430,0:03:04.221
+It's also available in Japanese.
+I think the edition may be a little outdated.
+
+0:03:04.246,0:03:11.476
+Then there's the next one, which I've mentioned in the video.
+It's called The Book of Shaders.
+
+0:03:11.501,0:03:18.259
+It's very well explained.
+It's a great learning experience because it comes with an editor that you can run on the fly.
+
+0:03:18.284,0:03:21.730
+So let's take a look at it.
+
+0:03:25.220,0:03:27.604
+He explained it in detail.
+
+0:03:27.628,0:03:35.948
+And an editor that actually reflects the code on the fly.
+It's all over the place.
+
+0:03:35.972,0:03:39.340
+I think you'll learn a lot.
+
+0:03:39.340,0:03:46.030
+Once you've mastered everything here.
+I think the range of expression will expand considerably.
+
+0:03:46.030,0:03:49.260
+Japanese version is also available
+
+0:03:49.569,0:03:55.316
+It's translated so well in Japanese that it looks amazing.
+Check it out.
+
+0:03:55.340,0:03:58.120
+The next one is called KodeLife.
+
+0:03:58.120,0:04:01.501
+This is the GLSL desktop editor.
+
+0:04:01.525,0:04:06.319
+I think it could be used for live coding and other such applications.
+
+0:04:06.319,0:04:11.319
+You can download it from this page
+
+0:04:13.126,0:04:18.970
+There are some videos on how to use it, so you might want to check it out.
+
+0:04:20.079,0:04:26.526
+For this KodeLife.
+Mr. Keijiro Takahashi has given many samples.
+
+0:04:26.551,0:04:31.469
+I think this area would be very helpful as well.
+
+0:04:39.735,0:04:48.876
+For example
+If you copy and paste this code into
+
+0:04:48.901,0:04:52.930
+It's supposed to work like this.
+
+0:04:53.708,0:05:00.671
+I think some of the code needs a bit of a fix to get it working.
+I can see the behavior like this.
+
+0:05:00.696,0:05:04.072
+I think you'll learn a lot.
+
+0:05:04.096,0:05:05.933
+Then the ISF.
+
+0:05:05.958,0:05:10.677
+I have previously introduced a study method using the ISF.
+
+0:05:10.702,0:05:15.927
+You can create effects for a VJ software called VDMX
+Shader editor.
+
+0:05:15.952,0:05:21.642
+I have samples of various effects.
+I think this would be very helpful too.
+
+0:05:21.667,0:05:22.845
+For example
+
+0:05:29.305,0:05:33.845
+There's all kinds of stuff in here.
+I have a sample of the effects.
+
+0:05:35.700,0:05:43.220
+This one has this controller on it.
+You can actually move it around.
+
+0:05:43.319,0:05:49.647
+On the left side, there's a cord that says.
+It's supposed to be a way to see what's going on.
+
+0:05:50.420,0:05:56.477
+This is a bit of an aside, but I made this one a long time ago.
+It's what we call a serial drama.
+
+0:05:56.502,0:05:59.547
+There are parameters.
+
+0:05:59.572,0:06:06.139
+We're going to increase this place.
+It's like having more and more Doraemon in your life
+
+0:06:06.660,0:06:10.620
+Sometimes it's the opposite with Mirror.
+
+0:06:10.620,0:06:14.910
+It's got a lot of effects.
+
+0:06:15.600,0:06:17.336
+It's like this.
+
+0:06:17.360,0:06:27.830
+I thought it was long gone with the change of domain.
+I had some left over, so I thought I'd introduce you to them.
+
+0:06:29.169,0:06:34.349
+I have the code here.
+Take a look if you're interested.
+
+0:06:34.677,0:06:41.880
+Continue to tweet and tweet the hashtag GLSL on Twitter.
+I'm sure some of you may have seen it.
+
+0:06:41.880,0:06:45.965
+The idea is to write a GLSL at a length that fits in a tweet
+
+0:06:45.989,0:06:51.099
+A lot of them are of a high standard.
+Some of them have sounds attached to them.
+
+0:06:51.099,0:06:58.589
+Maybe it's not quite for beginners.
+I think you'll learn a lot from watching it.
+
+0:07:02.580,0:07:07.024
+This one, sir.
+I'm an editor for that tweet GLSL.
+
+0:07:07.048,0:07:12.197
+As it's reacting now with the mouse.
+This editor also allows for interactive editing and
+
+0:07:12.221,0:07:18.240
+You can convert to video from here or
+You can also post to Twitter
+
+0:07:18.240,0:07:28.289
+Then there's this WebGL headquarters.
+This is the site of h_doxas, who created the tweet GLSL I mentioned earlier.
+
+0:07:28.289,0:07:33.610
+Getting Started with GLSL Creative Coding with twigl.app
+In a series called
+
+0:07:33.610,0:07:41.104
+He explains GLSL coding in a pretty straightforward manner, so I'm not going to get into the
+I think it would be very helpful.
+
+0:07:41.729,0:07:48.310
+I've been working on this video as well.
+There are quite a few things I've been referring to.
+
+0:07:48.310,0:07:51.540
+I think you'll learn a great deal.
+
+0:07:51.849,0:07:54.861
+Next, here's a site called ShaderToy.
+
+0:07:54.885,0:08:00.390
+There's a lot of work up there that's at a ridiculous level.
+It's a very nice site.
+
+0:08:00.757,0:08:04.375
+Of course, you can also submit your work here
+
+0:08:04.400,0:08:06.236
+For example, if you click
+
+0:08:09.126,0:08:11.853
+There's a player over here.
+It's supposed to have an editor over here.
+
+0:08:12.911,0:08:16.886
+I've been looking at TouchDesigner related GLSL questions.
+
+0:08:16.911,0:08:22.490
+How to convert this ShaderToy to TouchDesigner?
+I get a lot of questions like.
+
+0:08:22.490,0:08:28.242
+It's kind of too advanced.
+There's an awful lot of potential for me to just copy and paste.
+
+0:08:28.267,0:08:32.930
+Honestly, while you're a beginner.
+I don't think you're going to learn much.
+
+0:08:32.930,0:08:38.723
+So it's not so much for study.
+I'll present it to you this time as an ornamental.
+
+0:08:38.747,0:08:44.540
+Finally, I'd like to introduce you to a website called GLSL Sandbox
+
+0:08:44.540,0:08:48.640
+Same here.
+As you can see by clicking here.
+
+0:08:48.640,0:08:51.376
+I see this is a site with an online editor.
+
+0:08:51.401,0:08:58.579
+The code fix is.
+It's supposed to change this in the background.
+
+0:08:59.100,0:09:05.120
+This is the site, but I'm not even logging in anymore, and I'm just going to keep going.
+I can post anything I want.
+
+0:09:05.120,0:09:11.948
+It's a direct copy of ShaderToy or
+It's a site that's really noisy anyway.
+
+0:09:11.972,0:09:17.110
+It's like a nice thing sometimes.
+
+0:09:18.209,0:09:26.266
+It's a little hard to find, so if you have a really great time, that is.
+I think you'll find something of interest, too.
+
+0:09:31.040,0:09:32.440
+That's it.
+
+0:09:32.465,0:09:37.602
+Actually, this is the first time.
+This is the last episode of the first season.
+
+0:09:38.362,0:09:44.942
+I'll study and come back to it.
+We look forward to seeing you at the start of the second season!
+
+0:09:46.730,0:09:52.263
+About twice a month at TDSW.
+We're running live streaming workshops on the weekend.
+
+0:09:52.287,0:09:56.920
+Tickets are available through Petix and Eventbrite!
+
+0:09:56.920,0:10:02.441
+We also use Patreon
+There are currently three plans available
+
+0:10:02.465,0:10:08.850
+You can find these links in the video overview section of the video
+Check it out if you'd like.
+
+0:10:08.850,0:10:10.768
+So thank you for watching.
+
+0:10:10.793,0:10:15.432
+If you like it, Good Button and
+Please subscribe to our channel!
+
+0:10:15.457,0:10:16.865
+goodbye
+
+0:10:17.762,0:10:31.296
+[Music]
