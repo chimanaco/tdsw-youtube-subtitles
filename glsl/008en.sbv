@@ -1,0 +1,534 @@
+0:00:00.015,0:00:08.890
+[Music]
+
+0:00:10.180,0:00:15.210
+Hello, everyone.
+TDSW YouTube Channel.
+
+0:00:15.210,0:00:23.060
+This will be the eighth episode of Getting started with GLSL on TouchDesigner.
+Thank you for watching!
+
+0:00:23.060,0:00:30.934
+This time, sir.
+I'm going to do a GLSL drawing of the circle you are seeing.
+
+0:00:30.958,0:00:36.829
+In TouchDesigner, it's called
+We're going to make something that looks similar to Circle Top.
+
+0:00:36.829,0:00:44.290
+What we're going to do this time is first make a circular gradient.
+Adjust the size.
+
+0:00:44.290,0:00:51.046
+fill in the circle
+Finally, we're going to do some normalization and maintain the ratio of the drawing
+
+0:00:51.071,0:00:53.515
+So let's get to it.
+
+0:00:53.540,0:00:55.929
+First of all... as usual.
+
+0:00:55.954,0:01:03.759
+Putting the GLSL TOP in place.
+I have GLSL open in my editor.
+
+0:01:04.501,0:01:09.221
+First, we will create a circular gradient in GLSL
+
+0:01:09.432,0:01:13.261
+First thing's first, as always.
+
+0:01:13.286,0:01:23.265
+vec2 p = vUV.st
+and
+
+0:01:23.967,0:01:28.852
+Secondly, I'll use the length function
+
+0:01:28.877,0:01:33.860
+This will keep you at a distance.
+
+0:01:39.650,0:01:42.250
+Like this.
+
+0:01:42.400,0:01:51.410
+This calculated d is added to the rgb
+
+0:01:51.435,0:01:52.990
+It goes like this.
+
+0:01:53.015,0:02:01.900
+Now, here's the thing, this base point of zero.
+The gradient is in the form of a circle.
+
+0:02:02.480,0:02:09.510
+I'd like to take this one to the middle.
+I'm shifting the center point.
+
+0:02:10.170,0:02:21.100
+Here.
+vec2 center = vec2(0.5, 0.5)
+
+0:02:21.125,0:02:23.318
+Let me put it this way.
+
+0:02:23.343,0:02:32.546
+Subtracting this value from p
+When this happens, I was able to bring it to the middle.
+
+0:02:32.571,0:02:38.310
+Let's take another look at how this is going once TOP to
+
+0:02:42.338,0:02:46.300
+I only need to see the r's, so I'll turn off the rest.
+
+0:02:46.300,0:02:49.708
+It's like this.
+
+0:02:49.733,0:02:55.904
+There's a 0.5.
+When you go from 0.5 to 0 and then another 0.5.
+
+0:02:55.929,0:02:59.105
+It's shaped like this.
+
+0:03:01.140,0:03:04.548
+Then we're going to resize this one.
+
+0:03:04.573,0:03:12.188
+Simply, if you multiply the value of d by a number
+You can change the size.
+
+0:03:12.213,0:03:18.761
+If you put in t *= 2 or something like that.
+That's going to change.
+
+0:03:18.786,0:03:23.572
+Let's make it a little bit bigger.
+Then it looks like this.
+
+0:03:23.604,0:03:29.905
+What's going on here.
+I'd like to check again with Top To.
+
+0:03:29.929,0:03:32.289
+First things first.
+
+0:03:32.314,0:03:40.989
+It's called GLSL's Pixel Format.
+Set to a 16-bit float.
+
+0:03:41.020,0:03:43.108
+Why do we do this?
+
+0:03:43.133,0:03:49.702
+By default, the Format is set to
+It's called "8-bit fixed", isn't it?
+
+0:03:49.727,0:03:56.047
+In this case, whatever value you have
+It's supposed to output a value from 0 to 1.
+
+0:03:56.072,0:04:02.574
+If you take this to 16-bit.
+You will be able to output any value of plus or minus
+
+0:04:04.613,0:04:09.998
+This is a 16-bit float
+I'll change it to this.
+
+0:04:10.023,0:04:13.670
+I think you can see that this place has just changed.
+
+0:04:15.882,0:04:23.363
+in a nutshell
+It's going in from two, then zero, then two.
+
+0:04:23.387,0:04:29.377
+Since the black to white gradation takes place from 0 to 1
+
+0:04:29.402,0:04:32.482
+So the range would be from here to the middle of this one.
+
+0:04:32.507,0:04:37.217
+So I'm going to make the number here bigger.
+For example, if you do 8.
+
+0:04:37.242,0:04:44.360
+Here's 4 to 0 for 4.
+And this is how it goes.
+
+0:04:45.440,0:04:51.860
+Another way to debug is to use the
+I have one that I do a lot.
+
+0:04:51.884,0:04:55.467
+Turn on Viewer Active.
+
+0:04:55.492,0:05:00.742
+Display Pixel Values
+Select this one.
+
+0:05:00.767,0:05:05.191
+You see, this is what happens when you do this.
+It's a little hard to see in white on white.
+
+0:05:05.216,0:05:12.080
+Now you can see that the value of r is 4
+
+0:05:12.080,0:05:20.816
+Four here, and then you come up to zero here.
+I think one more trip to four would give you some numbers.
+
+0:05:21.899,0:05:27.396
+It's also incredibly useful for debugging, so please use it!
+
+0:05:27.420,0:05:33.940
+We'll continue.
+Now I'd like to fill in this circle.
+
+0:05:38.540,0:05:46.009
+There are many ways to fill in the circle here.
+I'm going to show you one of them in this issue.
+
+0:05:46.009,0:05:49.889
+I'll take this back one time.
+I'll leave it at that.
+
+0:05:49.889,0:05:55.187
+And this is where the smoothstep function is used
+
+0:05:55.211,0:06:10.495
+d = smoothstep(0.95, 1, d);
+
+0:06:10.520,0:06:15.120
+This is how I wrote it.
+
+0:06:15.145,0:06:22.109
+I'm told it's been filled in and slightly anti-aliased.
+It goes like this.
+
+0:06:22.134,0:06:29.298
+What is this function called smoothstep?
+It's called Elmiat interpolation.
+
+0:06:29.323,0:06:37.145
+If it is less than the first argument, it is 0, and
+1 if it is greater than the second argument
+
+0:06:37.961,0:06:46.944
+Between the arguments 1 and 2, the
+It returns a smoothly varying number.
+
+0:06:46.969,0:06:52.851
+That's what it comes down to.
+So I'd say about 0.95.
+
+0:06:52.876,0:07:00.571
+Zero to 0.95 and a smooth transition between 0.95 and 1.
+It's a gradient.
+
+0:07:01.704,0:07:06.448
+All the rest of it is one.
+And this is how it goes.
+
+0:07:07.940,0:07:11.134
+I was able to draw a circle.
+
+0:07:11.509,0:07:16.530
+There's just one problem here.
+
+0:07:16.980,0:07:23.599
+This one.
+When the aspect ratio changes.
+
+0:07:24.185,0:07:28.479
+It's no longer what we call a perfect circle.
+
+0:07:30.171,0:07:36.564
+If the ratio of this changes every time the resolution changes.
+Here's the problem.
+
+0:07:36.589,0:07:41.052
+I don't think there are many scenes where you can work in a square.
+
+0:07:41.077,0:07:45.540
+I'm sure everyone will be working in various resolutions
+
+0:07:45.565,0:07:51.250
+If I had changed the settings like this every time it happened.
+It's a lot of work, isn't it?
+
+0:07:51.490,0:07:55.398
+The solution is called coordinate normalization
+
+0:07:55.423,0:08:00.258
+Here's one piece of code that does normalization
+
+0:08:00.283,0:08:13.267
+ vec2 p = (gl_FragCoord.xy * 2.0 - uResolution) / min (uResolution.x, uResolution.y);
+
+0:08:13.292,0:08:18.669
+I'm going to look at what's called shader art or something like that.
+I think you'll see a lot of this kind of code.
+
+0:08:18.694,0:08:24.649
+Here's what we're doing.
+I'm working on normalizing by the length of the short side.
+
+0:08:25.930,0:08:33.807
+It took me quite a while to understand it at first, too.
+It's a bit difficult for people who aren't used to it.
+
+0:08:34.320,0:08:36.650
+I'm going to try to explain this to you.
+
+0:08:36.675,0:08:40.580
+I'd like to take you through the steps.
+
+0:08:40.605,0:08:46.880
+1000 in width and 500 in height.
+Suppose there was a
+
+0:08:46.880,0:08:59.246
+ vec2 p = (gl_FragCoord.xy * 2.0 - uResolution) / min (uResolution.x,
+uResolution.y);
+
+0:08:59.271,0:09:03.537
+It's code like this.
+I'll explain this one by one.
+
+0:09:03.562,0:09:08.310
+First.
+It's called gl_FragCoord.xy.
+
+0:09:08.310,0:09:16.953
+In this one, it's 0 to 1000 x.
+y has pixel coordinates from 0 to 500
+
+0:09:16.978,0:09:23.463
+This next one, the yellowing part.
+gl_FragCoord.xy * 2.0 - uResolution
+
+0:09:23.488,0:09:29.482
+You see, this is what I mean.
+So you can specify a range by doing this.
+
+0:09:29.506,0:09:35.179
+-uResolution to uResolution and
+Specify a range.
+
+0:09:35.204,0:09:43.198
+For x, it's -1000 to 1000
+In the case of y, the values of -500 to 500 come in here
+
+0:09:44.790,0:09:50.710
+Finally, there's the one called min(uResolution.x, uResolution.y)
+But the last one is called
+
+0:09:50.710,0:09:57.699
+The function min is called
+We're supposed to return the smaller of the two.
+
+0:09:57.699,0:10:05.070
+Since it's min(1000, 500) here
+It's always going to be 500 back.
+
+0:10:05.070,0:10:13.556
+Divide this 1 to 3 into x and y.
+I'm going to put in some specific numbers to make it even easier to understand
+
+0:10:14.630,0:10:20.646
+The first thing you'll notice is that this gl_FragCoord.x
+contains the numbers 0 to 1000.
+
+0:10:20.671,0:10:32.110
+So when you put 0 in, it means 0 * 2.0-1000, so
+On the left side, you'll see a -1000.
+
+0:10:32.110,0:10:41.560
+He said the number 500 will always be on the right side of the screen.
+Compare 1000 and 500 and you will always get the number 500.
+
+0:10:41.560,0:10:49.210
+So if x is 0, it returns -2.0.
+That's what it means.
+
+0:10:50.850,0:10:55.719
+This time, when the maximum of 1,000 enters here.
+
+0:10:55.744,0:11:04.803
+1000 * 2.0-1000, which is 2000-1000, so
+The number 1,000 is in here.
+
+0:11:04.827,0:11:10.320
+And on the right is 500 and
+So here's a 2.0 coming in at 1000/500.
+
+0:11:10.320,0:11:14.540
+Now we're going in the y-direction.
+
+0:11:14.600,0:11:25.160
+0 * 2.0-500 when y is zero.
+I mean, the -500 came in on the left side.
+
+0:11:25.160,0:11:33.649
+The 500 comes in on the right side.
+You'll get a figure of -1.0 at -500/500.
+
+0:11:33.649,0:11:43.450
+And now when the value of 500 comes in at y...
+500*2.0-500 and 500 comes in.
+
+0:11:43.450,0:11:48.086
+The answer is 1.0 because the min is 500, so the answer is 1.0
+
+0:11:48.111,0:11:59.848
+and the resulting coordinates are (-2.0, -1.0) for the lower left and (2.0, 1.0) for the upper right.
+This means that the coordinates are created in the range
+
+0:11:59.873,0:12:03.025
+I'm going to write this in code.
+
+0:12:03.050,0:12:06.805
+I'll set these at 1000 and 500.
+
+0:12:06.830,0:12:13.270
+Like this.
+The earlier p...
+
+0:12:15.527,0:12:18.449
+I copied and pasted this.
+You know, when you go in here.
+
+0:12:18.473,0:12:23.693
+The reason I'm getting the error now is because the resolution isn't in properly.
+
+0:12:23.718,0:12:28.180
+I'm going to put it in here as uniform
+
+0:12:31.189,0:12:38.588
+Okay, here we go.
+
+0:12:38.613,0:12:43.230
+1000 and 500 are in.
+
+0:12:43.230,0:12:50.404
+The center point is a little off right now.
+So you won't need a 0.5 shift in center.
+
+0:12:50.429,0:12:57.554
+So I'm going to set this to 0.0.
+This way, it's closer to the middle.
+
+0:12:57.579,0:13:02.151
+It's a bit smaller now.
+I might as well make this a 2.
+
+0:13:02.176,0:13:07.678
+Here's what's going on.
+I'd like to see a little bit of it again on uv
+
+0:13:09.184,0:13:20.727
+color.rgb = vec3(p, 0.0);
+
+0:13:20.752,0:13:25.059
+Like this.
+I'd like to look at this one a little bit bigger.
+
+0:13:25.084,0:13:31.828
+In the past.
+There's a (0, 0) point at the bottom left.
+
+0:13:31.853,0:13:37.330
+I think we've got this.
+It's supposed to be like this, with (0, 0) in the middle.
+
+0:13:37.355,0:13:41.074
+If you look at this in TOP To.
+
+0:13:41.099,0:13:48.703
+Top To Row this range, right?
+If you look at this range, you're taking -2 to 2.
+
+0:13:49.580,0:13:56.363
+So the range from -1 to 1 is right here in the middle.
+It ranges from -1 to 1.
+
+0:13:56.388,0:13:59.568
+I'll put this uv back once.
+
+0:13:59.593,0:14:06.279
+Here's what it's all about.
+It behaves the same way as the Fit Vertical in Composite Top
+
+0:14:06.304,0:14:08.517
+Let's try something.
+
+0:14:08.542,0:14:14.478
+There was a circle.
+
+0:14:17.544,0:14:25.405
+Circle and Constant
+I'm going to try to size these to 1000 and 500.
+
+0:14:25.430,0:14:33.685
+Here's what I'm getting at, Alpha 0.
+If you have a comp.
+
+0:14:33.710,0:14:39.439
+I think we can connect those two together and use Add.
+It's like this.
+
+0:14:39.464,0:14:45.880
+Since this is the state before the normalization we just saw
+It's all stretched out to the side.
+
+0:14:45.905,0:14:53.501
+This is the Transform's Fit Vertical
+If you choose this one, this is how it's going to look.
+
+0:14:53.526,0:15:01.071
+Along the vertical edges.
+It means that the sides are normalized as well.
+
+0:15:01.096,0:15:08.838
+Exactly the same thing.
+It means that we are doing it here at GLSL this time.
+
+0:15:15.449,0:15:19.223
+Now we can draw a circle.
+
+0:15:19.248,0:15:21.590
+That's all for this time.
+
+0:15:21.615,0:15:27.368
+About twice a month at TDSW.
+We're running live streaming workshops on the weekend.
+
+0:15:27.393,0:15:31.781
+Tickets are available through Petix and Eventbrite!
+
+0:15:31.806,0:15:37.509
+We also use Patreon
+There are currently three plans available
+
+0:15:37.534,0:15:42.104
+You can find these links in the video overview section of the video
+Check it out if you'd like.
+
+0:15:42.128,0:15:44.294
+So thank you for watching.
+
+0:15:44.319,0:15:48.746
+I hope you like it.
+Good button, please subscribe to our channel!
+
+0:15:48.771,0:15:50.278
+goodbye
+
+0:15:50.974,0:16:06.464
+[Music]
